@@ -1,1 +1,1 @@
-![Metrics](https://metrics.lecoq.io/oxicode?template=classic&followup=1&isocalendar=1&pagespeed=1&stars=1&projects=1&languages=1&pagespeed.detailed=false&isocalendar.duration=half-year&projects.limit=4&stars.limit=4&config.timezone=America%2FLima)
+![Metrics](https://metrics.lecoq.io/oxicode?template=classic&followup=1&isocalendar=1&pagespeed=0&stars=1&projects=1&languages=1&pagespeed.detailed=false&isocalendar.duration=half-year&projects.limit=4&stars.limit=4&config.timezone=America%2FLima)
