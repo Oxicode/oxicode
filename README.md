@@ -1,1 +1,1 @@
-![Metrics](https://metrics.lecoq.io/oxicode)
+![Metrics](https://metrics.lecoq.io/oxicode?template=classic&followup=1&isocalendar=1&pagespeed=1&pagespeed.detailed=false&pagespeed.screenshot=false&isocalendar.duration=half-year&config.timezone=America%2FLima)
