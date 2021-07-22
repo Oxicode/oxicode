@@ -30,8 +30,8 @@
 <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/nodejs/nodejs.png" />
 <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/webpack/webpack.png" />
 <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" /> 
-
-
+<br><br>
+<a href="https://app.daily.dev/oxicode"><img src="https://api.daily.dev/devcards/5a962eaf38fc4f4b9b6299f9824223c0.png?r=sdu" width="400" alt="Christian Quispe's Dev Card"/></a>
 <br><br>
 ## My Github Stats
 
