@@ -13,12 +13,13 @@ const Home = ({ profile }) => {
         <title>Profile Oxicode.io</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-screen flex flex-col bg-gray-100">
+
+      <div className="min-h-screen flex flex-col">
         <div className="m-auto">
           <div className="flex flex-col bg-gray-200 max-w-sm shadow-md py-7 px-10 md:px-7 rounded-md">
             <div className="flex flex-col md:flex-row gap-6">
               <img
-                className="rounded-full border-4 border-gray-300 h-28 w-28 mx-auto"
+                className="rounded-full border-4 border-gray-800 h-28 w-28 mx-auto"
                 src={profile.avatar_url} alt=""
               />
               <div className="flex flex-col text-center md:text-left">
@@ -49,6 +50,9 @@ const Home = ({ profile }) => {
             </div>
           </div>
         </div>
+        <div id="stars"></div>
+        <div id="stars1"></div>
+        <div id="stars2"></div>
       </div>
     </>
   )
@@ -61,7 +65,7 @@ export async function getStaticProps () {
   return {
     props: {
       profile: response.data
-    }, // will be passed to the page component as props
+    },
   }
 }
 
