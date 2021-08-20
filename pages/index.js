@@ -1,82 +1,68 @@
+/* eslint-disable @next/next/no-img-element */
+import React from 'react'
 import Head from 'next/head'
+import { Octokit } from "@octokit/core";
+import { FaLinkedin,FaInbox,FaWhatsapp } from "react-icons/fa";
+import { HiOutlineDocumentDownload as IconDonwload } from "react-icons/hi";
 
-export default function Home() {
+const Home = ({ profile }) => {
+  const [showingEmail,setShowingEmail] = React.useState(false);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <>
       <Head>
-        <title>Create Next App</title>
+        <title>Profile Oxicode.io</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
-
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">
-            pages/index.js
-          </code>
-        </p>
-
-        <div className="flex flex-wrap items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="p-6 mt-6 text-left border w-96 rounded-xl hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <div className="min-h-screen flex flex-col bg-gray-100">
+        <div className="m-auto">
+          <div className="flex flex-col bg-gray-200 max-w-sm shadow-md py-7 px-10 md:px-7 rounded-md">
+            <div className="flex flex-col md:flex-row gap-6">
+              <img
+                className="rounded-full border-4 border-gray-300 h-28 w-28 mx-auto"
+                src={profile.avatar_url} alt=""
+              />
+              <div className="flex flex-col text-center md:text-left">
+                <div className="font-medium text-lg text-gray-800">Christian Quispe</div>
+                <div className="text-gray-500 mb-3 whitespace-nowrap">{profile.bio}</div>
+                <div className="flex flex-row gap-4 text-gray-800 my-auto text-2xl mx-auto md:mx-0">
+                  <a title='Resume' target="_blank" href='https://pdf.oxicode.io/' className="hover:cursor-pointer hover:text-red-600" rel="noreferrer">
+                    <IconDonwload size="1.5em" />
+                  </a>
+                  <a title='Linkedin' target="_blank" href='https://cv.oxicode.io' className="hover:cursor-pointer hover:text-blue-600" rel="noreferrer">
+                    <FaLinkedin size="1.5em" />
+                  </a>
+                  <a title='Whatsapp' target="_blank" href='https://api.whatsapp.com/send?phone=51944466353' className="hover:cursor-pointer hover:text-green-500" rel="noreferrer">
+                    <FaWhatsapp size="1.5em" />
+                  </a>
+                  {showingEmail ? (
+                    <a title='christian.quispeh@gmail.com' className="hover:cursor-pointer hover:text-red-500" href='mailto:christian.quispeh@gmail.com'>
+                      <FaInbox size="1.5em" />
+                    </a>
+                  ) : (
+                    <a title='MailTo, Click for contact info' className="hover:cursor-pointer hover:text-red-500"
+                      onClick={() => setShowingEmail(true)}>
+                      <FaInbox size="1.5em" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-
-      <footer className="flex items-center justify-center w-full h-24 border-t">
-        <a
-          className="flex items-center justify-center"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-        </a>
-      </footer>
-    </div>
+      </div>
+    </>
   )
 }
+export async function getStaticProps () {
+  const octokit = new Octokit({ auth: `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` });
+
+  const response = await octokit.request('GET /user')
+
+  return {
+    props: {
+      profile: response.data
+    }, // will be passed to the page component as props
+  }
+}
+
+export default Home
