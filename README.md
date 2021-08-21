@@ -2,10 +2,10 @@
 
 ### Available for a remote job:
 [![Gmail Badge](https://img.shields.io/badge/christian.quispeh@gmail.com-c14438?style=flat&logo=Gmail&logoColor=white&link=mailto:christian.quispeh@gmail.com)](mailto:christian.quispeh@gmail.com)
-[![Linkedin Badge](https://img.shields.io/badge/-Christian%20QH-0072b1?style=flat&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/oxicode/)](https://linkedin.com/in/oxicode/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Christian%20QH-0072b1?style=flat&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/oxicode/)](https://linkedin.com/in/oxicode/)
 <br>
 </p>
- 
+
 #### Languages and tools:
 <p align="center">
     <img src="https://img.shields.io/badge/-PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
@@ -29,7 +29,7 @@
 <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/blockchain/blockchain.png" />
 <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/nodejs/nodejs.png" />
 <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/webpack/webpack.png" />
-<img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" /> 
+<img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" />
 <br><br>
 <a href="https://app.daily.dev/oxicode"><img src="https://api.daily.dev/devcards/5a962eaf38fc4f4b9b6299f9824223c0.png?r=sdu" width="400" alt="Christian Quispe's Dev Card"/></a>
 <br><br>
