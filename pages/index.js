@@ -59,8 +59,7 @@ const Home = ({ profile }) => {
         size="invisible"
         sitekey={process.env.RECAPTCHA_SITE_KEY}
         onChange={() => setShowHuman(true)}
-        onErrored={() => { setErrorCaptcha(true) }
-        }
+        onErrored={() => setErrorCaptcha(true)}
       />
       <div className="min-h-screen flex flex-col">
         <div className="m-auto">
