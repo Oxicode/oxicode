@@ -11,8 +11,7 @@
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-protected-mailto": "^1.0.3"
+    "react-icons": "^4.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
@@ -20,11 +19,6 @@
     "eslint": "^7.32.0",
     "eslint-config-eslint": "^7.0.0",
     "eslint-config-next": "11.1.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.24.0",
     "postcss": "^8.3.5",
     "tailwindcss": "^2.2.4"
   }

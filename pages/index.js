@@ -58,6 +58,7 @@ const Home = ({ profile }) => {
   )
 }
 export async function getStaticProps () {
+
   const octokit = new Octokit({ auth: process.env.TOKEN_GITHUB });
 
   const response = await octokit.request('GET /user')
