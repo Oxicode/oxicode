@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+/* eslint-disable @next/next/no-img-element, camelcase */
 import React, { useEffect, createRef, useState } from 'react'
 import Head from 'next/head'
 import { Octokit } from '@octokit/core'
@@ -6,7 +6,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { FaLinkedin, FaInbox, FaWhatsapp, FaRobot } from 'react-icons/fa'
 import { HiOutlineDocumentDownload as IconDonwload } from 'react-icons/hi'
 
-const Home = ({ profile }) => {
+const Home = ({ bio, avatar_url, blog }) => {
   const recaptchaRef = createRef()
   const [showHuman, setShowHuman] = useState(false)
   const [errorCaptcha, setErrorCaptcha] = useState(false)
@@ -50,9 +50,9 @@ const Home = ({ profile }) => {
         <title>Profile Oxicode.io</title>
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Resume Christian Quispe" />
-        <meta property="og:description" content={profile.bio} />
-        <meta property="og:image" content={profile.avatar_url} />
-        <meta property="og:url" content={profile.blog} />
+        <meta property="og:description" content={bio} />
+        <meta property="og:image" content={avatar_url} />
+        <meta property="og:url" content={blog} />
       </Head>
       <ReCAPTCHA
         ref={recaptchaRef}
@@ -67,11 +67,11 @@ const Home = ({ profile }) => {
             <div className="flex flex-col md:flex-row gap-6">
               <img
                 className="rounded-full border-4 border-gray-800 h-28 w-28 mx-auto"
-                src={profile.avatar_url} alt=""
+                src={avatar_url} alt=""
               />
               <div className="flex flex-col text-center md:text-left">
                 <div className="font-medium text-lg text-gray-800">Christian Quispe</div>
-                <div className="text-gray-500 mb-3 whitespace-nowrap">{profile.bio}</div>
+                <div className="text-gray-500 mb-3 whitespace-nowrap">{bio}</div>
                 <div className="flex flex-row gap-4 text-gray-800 my-auto text-2xl mx-auto md:mx-0">
                   {resumePdf}
                   <a title='Linkedin' target="_blank" href='https://cv.oxicode.io' className="hover:cursor-pointer hover:text-blue-600" rel="noreferrer">
@@ -114,10 +114,11 @@ export async function getStaticProps () {
   const octokit = new Octokit({ auth: process.env.TOKEN_GITHUB })
 
   const response = await octokit.request('GET /user')
+  const { bio, avatar_url, blog } = response.data
 
   return {
     props: {
-      profile: response.data
+      bio, avatar_url, blog
     }
   }
 }
