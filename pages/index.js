@@ -6,15 +6,15 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { FaLinkedin, FaInbox, FaWhatsapp, FaRobot } from 'react-icons/fa'
 import { HiOutlineDocumentDownload as IconDonwload } from 'react-icons/hi'
 
-const Home = ({ bio, avatar_url, blog }) => {
+const Home = ({ bio, avatar_url, blog, email }) => {
   const recaptchaRef = createRef()
   const [showHuman, setShowHuman] = useState(false)
   const [errorCaptcha, setErrorCaptcha] = useState(false)
-  const email = (
+  const mail = (
     <a
-      title={showHuman ? 'christian.quispeh@gmail.com' : 'MailTo, Click for contact info'}
+      title={showHuman ? email : 'MailTo, Click for contact info'}
       className="hover:cursor-pointer hover:text-red-500"
-      href={showHuman ? 'mailto:christian.quispeh@gmail.com' : '#'}
+      href={showHuman ? `mailto:${email}` : '#'}
       onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
     >
       <FaInbox size="1.5em" />
@@ -24,7 +24,7 @@ const Home = ({ bio, avatar_url, blog }) => {
   const whatsapp = (
     <a title='Whatsapp' target="_blank"
       onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
-      href={showHuman ? 'https://api.whatsapp.com/send?phone=51944466353' : '#'}
+      href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
       className="hover:cursor-pointer hover:text-green-500" rel="noreferrer">
       <FaWhatsapp size="1.5em" />
     </a>
@@ -78,7 +78,7 @@ const Home = ({ bio, avatar_url, blog }) => {
                     <FaLinkedin size="1.5em" />
                   </a>
                   {whatsapp}
-                  {email}
+                  {mail}
                 </div>
               </div>
             </div>
@@ -114,11 +114,11 @@ export async function getStaticProps () {
   const octokit = new Octokit({ auth: process.env.TOKEN_GITHUB })
 
   const response = await octokit.request('GET /user')
-  const { bio, avatar_url, blog } = response.data
+  const { bio, avatar_url, blog, email } = response.data
 
   return {
     props: {
-      bio, avatar_url, blog
+      bio, avatar_url, blog, email
     }
   }
 }
