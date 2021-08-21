@@ -50,7 +50,7 @@ const Home = ({ profile }) => {
             </div>
           </div>
         </div>
-        <div id="stars"></div>
+        <div id="stars0"></div>
         <div id="stars1"></div>
         <div id="stars2"></div>
       </div>
@@ -58,7 +58,7 @@ const Home = ({ profile }) => {
   )
 }
 export async function getStaticProps () {
-  const octokit = new Octokit({ auth: `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` });
+  const octokit = new Octokit({ auth: process.env.TOKEN_GITHUB });
 
   const response = await octokit.request('GET /user')
 
