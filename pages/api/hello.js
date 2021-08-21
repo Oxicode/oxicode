@@ -1,4 +1,4 @@
 
-export default function helloAPI(req, res) {
+export default function helloAPI (req, res) {
   res.status(200).json({ name: 'Oxicode' })
 }

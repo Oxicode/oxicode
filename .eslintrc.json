@@ -4,8 +4,10 @@
     "es2021": true,
     "node": true
   },
+  "parser": "babel-eslint",
   "extends": [
       "eslint:recommended",
+      "standard",
       "next/core-web-vitals"
   ],
   "rules": {
