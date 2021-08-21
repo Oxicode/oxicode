@@ -70,7 +70,7 @@ const Home = ({ bio, avatar_url, blog }) => {
                 src={avatar_url} alt=""
               />
               <div className="flex flex-col text-center md:text-left">
-                <div className="font-medium text-lg text-gray-800">Christian Quispe</div>
+                <div className="font-medium text-lg text-gray-800" style={{ fontFamily: 'Nunito' }}>Christian Quispe</div>
                 <div className="text-gray-500 mb-3 whitespace-nowrap">{bio}</div>
                 <div className="flex flex-row gap-4 text-gray-800 my-auto text-2xl mx-auto md:mx-0">
                   {resumePdf}
