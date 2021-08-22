@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { Octokit } from '@octokit/core'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FaLinkedin, FaInbox, FaWhatsapp, FaRobot } from 'react-icons/fa'
+import { RiPaypalFill } from 'react-icons/ri'
 import { HiOutlineDocumentDownload as IconDonwload } from 'react-icons/hi'
 
 const Home = ({ bio, avatar_url, blog, email }) => {
@@ -17,7 +18,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
       href={showHuman ? `mailto:${email}` : '#'}
       onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
     >
-      <FaInbox size="1.5em" />
+      <FaInbox />
     </a>
   )
 
@@ -26,18 +27,32 @@ const Home = ({ bio, avatar_url, blog, email }) => {
       onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
       href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
       className="hover:cursor-pointer hover:text-green-500" rel="noreferrer">
-      <FaWhatsapp size="1.5em" />
+      <FaWhatsapp />
     </a>
   )
 
   const resumePdf = (
     <a
-    title='Resume' target="_blank"
-    href={showHuman ? 'https://pdf.oxicode.io/' : '#'}
-    onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
-    className="hover:cursor-pointer hover:text-red-600" rel="noreferrer">
-      <IconDonwload size="1.5em" />
+      title='Resume' target="_blank"
+      href={showHuman ? 'https://pdf.oxicode.io/' : '#'}
+      onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
+      className="hover:cursor-pointer hover:text-red-600" rel="noreferrer">
+      <IconDonwload />
     </a>
+  )
+
+  const paypal = (
+    <>
+    <form action="https://www.paypal.com/donate" method="post"
+    target="_top"
+     className="hover:cursor-pointer hover:text-blue-600">
+      <input type="hidden" name="hosted_button_id" value={process.env.TOKEN_PAYPAL} />
+      <button type="submit">
+        <RiPaypalFill title='Buy a Coffee' />
+      </button>
+      <img alt="" border="0" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
+    </form>
+    </>
   )
 
   useEffect(() => {
@@ -63,8 +78,8 @@ const Home = ({ bio, avatar_url, blog, email }) => {
       />
       <div className="min-h-screen flex flex-col">
         <div className="m-auto">
-          <div className="flex flex-col bg-gray-200 max-w-sm shadow-md py-7 px-10 md:px-7 rounded-md">
-            <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col bg-gray-200 max-w-sm shadow-md py-7 px-7 rounded-md">
+            <div className="flex flex-col md:flex-row gap-4">
               <img
                 className="rounded-full border-4 border-gray-800 h-28 w-28 mx-auto"
                 src={avatar_url} alt=""
@@ -72,34 +87,36 @@ const Home = ({ bio, avatar_url, blog, email }) => {
               <div className="flex flex-col text-center md:text-left">
                 <div className="font-medium text-lg text-gray-800" style={{ fontFamily: 'Nunito' }}>Christian Quispe</div>
                 <div className="text-gray-500 mb-3 whitespace-nowrap">{bio}</div>
-                <div className="flex flex-row gap-4 text-gray-800 my-auto text-2xl mx-auto md:mx-0">
+                <div className="flex flex-row gap-2 text-gray-800 my-auto text-4xl mx-auto md:mx-0">
                   {resumePdf}
                   <a title='Linkedin' target="_blank" href='https://cv.oxicode.io' className="hover:cursor-pointer hover:text-blue-600" rel="noreferrer">
-                    <FaLinkedin size="1.5em" />
+                    <FaLinkedin />
                   </a>
                   {whatsapp}
                   {mail}
+                  {paypal}
                 </div>
               </div>
+
             </div>
           </div>
 
           {errorCaptcha
             ? (<div className="alert flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300 mt-2">
-            <div className="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center flex-shrink-0 rounded-full">
-              <span className="text-red-500">
-                <FaRobot size={'1.5em'} />
-              </span>
-            </div>
-            <div className="alert-content ml-4">
-              <div className="alert-title font-semibold text-lg text-red-800">
-                ¿Robot...?
+              <div className="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center flex-shrink-0 rounded-full">
+                <span className="text-red-500">
+                  <FaRobot size={'1.5em'} />
+                </span>
               </div>
-              <div className="alert-description text-sm text-red-600">
-                <p>Por alguna razón no pude comprobar que <br /> eres humano. Igual puedes acceder al Linkedin</p>
+              <div className="alert-content ml-4">
+                <div className="alert-title font-semibold text-lg text-red-800">
+                  ¿Robot...?
+                </div>
+                <div className="alert-description text-sm text-red-600">
+                  <p>Por alguna razón no pude comprobar que <br /> eres humano. Igual puedes acceder al Linkedin</p>
+                </div>
               </div>
-            </div>
-          </div>)
+            </div>)
             : ''}
 
         </div>
