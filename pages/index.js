@@ -2,6 +2,7 @@
 import { Octokit } from '@octokit/core'
 import Head from 'next/head'
 import React, { createRef, useEffect, useState } from 'react'
+import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FaInbox, FaLinkedin, FaRobot, FaWhatsapp } from 'react-icons/fa'
 import { HiOutlineDocumentDownload as IconDonwload } from 'react-icons/hi'
@@ -16,7 +17,14 @@ const Home = ({ bio, avatar_url, blog, email }) => {
       title={showHuman ? email : 'MailTo, Click for contact info'}
       className="hover:cursor-pointer hover:text-red-500"
       href={showHuman ? `mailto:${email}` : '#'}
-      onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
+      onClick={() => {
+        if (!showHuman) { recaptchaRef.current.execute() }
+        ReactGA.event({
+          category: 'Navigation',
+          action: 'Click',
+          label: 'Mail'
+        })
+      }}
     >
       <FaInbox />
     </a>
@@ -24,7 +32,14 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 
   const whatsapp = (
     <a title='Whatsapp' target="_blank"
-      onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
+      onClick={() => {
+        if (!showHuman) { recaptchaRef.current.execute() }
+        ReactGA.event({
+          category: 'Navigation',
+          action: 'Click',
+          label: 'Whatsapp'
+        })
+      }}
       href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
       className="hover:cursor-pointer hover:text-green-500" rel="noreferrer">
       <FaWhatsapp />
@@ -35,7 +50,14 @@ const Home = ({ bio, avatar_url, blog, email }) => {
     <a
       title='Resume' target="_blank"
       href={showHuman ? 'https://pdf.oxicode.io/' : '#'}
-      onClick={() => { if (!showHuman) { recaptchaRef.current.execute() } }}
+      onClick={() => {
+        if (!showHuman) { recaptchaRef.current.execute() }
+        ReactGA.event({
+          category: 'Navigation',
+          action: 'Click',
+          label: 'resumePdf'
+        })
+      }}
       className="hover:cursor-pointer hover:text-red-600" rel="noreferrer">
       <IconDonwload />
     </a>
@@ -56,7 +78,10 @@ const Home = ({ bio, avatar_url, blog, email }) => {
   )
 
   useEffect(() => {
+    ReactGA.initialize(process.env.TRACKING_ID)
     recaptchaRef.current.execute()
+    ReactGA.set({ page: window.location.pathname })
+    ReactGA.pageview(window.location.pathname)
   })
 
   return (
