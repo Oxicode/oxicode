@@ -57,7 +57,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 
   useEffect(() => {
     recaptchaRef.current.execute()
-  }, [])
+  })
 
   return (
     <>
