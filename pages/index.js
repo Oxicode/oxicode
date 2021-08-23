@@ -43,15 +43,15 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 
   const paypal = (
     <>
-    <form action="https://www.paypal.com/donate" method="post"
-    target="_top"
-     className="hover:cursor-pointer hover:text-blue-600">
-      <input type="hidden" name="hosted_button_id" value={process.env.TOKEN_PAYPAL} />
-      <button type="submit">
-        <RiPaypalFill title='Buy a Coffee' />
-      </button>
-      <img alt="" border="0" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
-    </form>
+      <form action="https://www.paypal.com/donate" method="post"
+        target="_top"
+        className="hover:cursor-pointer hover:text-blue-600">
+        <input type="hidden" name="hosted_button_id" value={process.env.TOKEN_PAYPAL} />
+        <button type="submit">
+          <RiPaypalFill title='Buy a Coffee' />
+        </button>
+        <img alt="" border="0" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
+      </form>
     </>
   )
 
@@ -101,23 +101,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
             </div>
           </div>
 
-          {errorCaptcha
-            ? (<div className="alert flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300 mt-2">
-              <div className="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center flex-shrink-0 rounded-full">
-                <span className="text-red-500">
-                  <FaRobot size={'1.5em'} />
-                </span>
-              </div>
-              <div className="alert-content ml-4">
-                <div className="alert-title font-semibold text-lg text-red-800">
-                  ¿Robot...?
-                </div>
-                <div className="alert-description text-sm text-red-600">
-                  <p>Por alguna razón no pude comprobar que <br /> eres humano. Igual puedes acceder al Linkedin</p>
-                </div>
-              </div>
-            </div>)
-            : ''}
+          <AlertRobot errorCaptcha={errorCaptcha} />
 
         </div>
         <div id="stars0"></div>
@@ -127,6 +111,25 @@ const Home = ({ bio, avatar_url, blog, email }) => {
     </>
   )
 }
+
+const AlertRobot = ({ errorCaptcha }) => (errorCaptcha
+  ? (<div className="alert flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300 mt-2">
+    <div className="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center flex-shrink-0 rounded-full">
+      <span className="text-red-500">
+        <FaRobot size={'1.5em'} />
+      </span>
+    </div>
+    <div className="alert-content ml-4">
+      <div className="alert-title font-semibold text-lg text-red-800">
+        ¿Robot...?
+      </div>
+      <div className="alert-description text-sm text-red-600">
+        <p>Por alguna razón no pude comprobar que <br /> eres humano. Igual puedes acceder al Linkedin</p>
+      </div>
+    </div>
+  </div>)
+  : <></>)
+
 export async function getStaticProps () {
   const octokit = new Octokit({ auth: process.env.TOKEN_GITHUB })
 
