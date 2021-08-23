@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element, camelcase */
-import React, { useEffect, createRef, useState } from 'react'
-import Head from 'next/head'
 import { Octokit } from '@octokit/core'
+import Head from 'next/head'
+import React, { createRef, useEffect, useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { FaLinkedin, FaInbox, FaWhatsapp, FaRobot } from 'react-icons/fa'
-import { RiPaypalFill } from 'react-icons/ri'
+import { FaInbox, FaLinkedin, FaRobot, FaWhatsapp } from 'react-icons/fa'
 import { HiOutlineDocumentDownload as IconDonwload } from 'react-icons/hi'
+import { RiPaypalFill } from 'react-icons/ri'
 
 const Home = ({ bio, avatar_url, blog, email }) => {
   const recaptchaRef = createRef()
