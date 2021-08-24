@@ -131,7 +131,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
                 className="rounded-full border-4 border-gray-800 h-24 w-24 mx-auto"
                 src={avatar_url} alt=""
               />
-              <div className="flex flex-col text-center md:text-left">
+              <div className="flex flex-col text-center md:text-left mb-3">
                 <div className="font-medium text-2xl text-gray-800 pt-2 pb-1" style={{ fontFamily: 'Nunito' }}>Christian Quispe</div>
                 <div className="text-gray-500 mb-3 whitespace-nowrap">{bio}</div>
 
@@ -147,7 +147,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
               leaveTo="opacity-0"
             >
 
-            <hr className='border-t mt-4 mb-2 border-solid border-gray-400' />
+              <hr className='border-t sm:mt-0 md:mt-3 mb-2 border-solid border-gray-400' />
               <div className="flex flex-col transition duration-500 ease-in-out">
                 {linkedin}
                 {resumePdf}
