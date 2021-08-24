@@ -4,6 +4,7 @@ import Head from 'next/head'
 import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { BiCalendarEvent as CalendarIcon } from 'react-icons/bi'
 import { FaInbox, FaLinkedin, FaRobot, FaWhatsapp } from 'react-icons/fa'
 import { HiOutlineDocumentDownload as IconDonwload } from 'react-icons/hi'
 import { RiPaypalFill } from 'react-icons/ri'
@@ -103,26 +104,30 @@ const Home = ({ bio, avatar_url, blog, email }) => {
       />
       <div className="min-h-screen flex flex-col">
         <div className="m-auto">
-          <div className="flex flex-col bg-gray-200 max-w-sm shadow-md py-7 px-7 rounded-md">
-            <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col bg-gray-200 max-w-sm shadow-md pt-7 pb-5 px-6 rounded-md">
+            <div className="flex flex-col md:flex-row gap-5">
               <img
-                className="rounded-full border-4 border-gray-800 h-28 w-28 mx-auto"
+                className="rounded-full border-4 border-gray-800 h-36 w-36 mx-auto"
                 src={avatar_url} alt=""
               />
               <div className="flex flex-col text-center md:text-left">
-                <div className="font-medium text-lg text-gray-800" style={{ fontFamily: 'Nunito' }}>Christian Quispe</div>
+                <div className="font-medium text-xl text-gray-800" style={{ fontFamily: 'Nunito' }}>Christian Quispe H.</div>
                 <div className="text-gray-500 mb-3 whitespace-nowrap">{bio}</div>
-                <div className="flex flex-row gap-2 text-gray-800 my-auto text-4xl mx-auto md:mx-0">
+                <div className="flex flex-row gap-4 text-gray-800 my-auto text-4xl mx-auto">
                   {resumePdf}
                   <a title='Linkedin' target="_blank" href='https://cv.oxicode.io' className="hover:cursor-pointer hover:text-blue-600" rel="noreferrer">
                     <FaLinkedin />
                   </a>
                   {whatsapp}
+                </div>
+                <div className="flex flex-row gap-4 text-gray-800 my-auto text-4xl mt-2 mx-auto">
                   {mail}
+                  <a title='Calendly' target="_blank" href='https://calendly.com/christian-quispeh/15min' className="hover:cursor-pointer hover:text-blue-300" rel="noreferrer">
+                    <CalendarIcon />
+                  </a>
                   {paypal}
                 </div>
               </div>
-
             </div>
           </div>
 
