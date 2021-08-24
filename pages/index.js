@@ -1,22 +1,23 @@
 /* eslint-disable @next/next/no-img-element, camelcase */
+import { Transition } from '@headlessui/react'
 import { Octokit } from '@octokit/core'
 import Head from 'next/head'
 import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { BiCalendarEvent as CalendarIcon } from 'react-icons/bi'
-import { FaInbox, FaLinkedin, FaRobot, FaWhatsapp } from 'react-icons/fa'
-import { HiOutlineDocumentDownload as IconDonwload } from 'react-icons/hi'
+import { FaAngleDoubleDown, FaAngleDoubleUp, FaInbox, FaLinkedin, FaRobot, FaWhatsapp } from 'react-icons/fa'
 import { RiPaypalFill } from 'react-icons/ri'
+import { VscCalendar as CalendarIcon, VscFilePdf as IconDonwload } from 'react-icons/vsc'
 
 const Home = ({ bio, avatar_url, blog, email }) => {
   const recaptchaRef = createRef()
+  const [showMoreOptions, setShowMoreOptions] = useState(false)
   const [showHuman, setShowHuman] = useState(false)
   const [errorCaptcha, setErrorCaptcha] = useState(false)
   const mail = (
     <a
       title={showHuman ? email : 'MailTo, Click for contact info'}
-      className="hover:cursor-pointer hover:text-red-500"
+      className="my-2 hover:cursor-pointer hover:text-red-500"
       href={showHuman ? `mailto:${email}` : '#'}
       onClick={() => {
         if (!showHuman) { recaptchaRef.current.execute() }
@@ -27,7 +28,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         })
       }}
     >
-      <FaInbox />
+      <FaInbox className='inline-block text-3xl' /> Contact by email
     </a>
   )
 
@@ -42,8 +43,8 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         })
       }}
       href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
-      className="hover:cursor-pointer hover:text-green-500" rel="noreferrer">
-      <FaWhatsapp />
+      className="my-2 hover:cursor-pointer hover:text-green-500" rel="noreferrer">
+      <FaWhatsapp className='inline-block text-3xl' /> Whatsapp
     </a>
   )
 
@@ -59,8 +60,8 @@ const Home = ({ bio, avatar_url, blog, email }) => {
           label: 'resumePdf'
         })
       }}
-      className="hover:cursor-pointer hover:text-red-600" rel="noreferrer">
-      <IconDonwload />
+      className="my-2 hover:cursor-pointer hover:text-red-600" rel="noreferrer">
+      <IconDonwload className='inline-block text-3xl' /> {' '} Download resume
     </a>
   )
 
@@ -68,15 +69,27 @@ const Home = ({ bio, avatar_url, blog, email }) => {
     <>
       <form action="https://www.paypal.com/donate" method="post"
         target="_top"
-        className="hover:cursor-pointer hover:text-blue-600">
+        className="mt-2 hover:cursor-pointer hover:text-blue-600">
         <input type="hidden" name="hosted_button_id" value={process.env.TOKEN_PAYPAL} />
         <button type="submit">
-          <RiPaypalFill title='Buy a Coffee' />
+          <RiPaypalFill title='Buy a Coffee' className='inline-block text-3xl' /> {' '} Paypal
         </button>
         <img alt="" border="0" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
       </form>
     </>
   )
+
+  const linkedin = (<a title='Linkedin' target="_blank" href='https://cv.oxicode.io'
+    className="my-2 hover:cursor-pointer hover:text-blue-600"
+    rel="noreferrer">
+    <FaLinkedin className='inline-block text-3xl' /> {' '} Linkedin
+  </a>)
+
+  const calendly = (<a title='Calendly' target="_blank"
+    href='https://calendly.com/christian-quispeh/15min'
+    className="my-2 hover:cursor-pointer hover:text-blue-300" rel="noreferrer">
+    <CalendarIcon className='inline-block text-3xl' /> {' '} Calendly
+  </a>)
 
   useEffect(() => {
     ReactGA.initialize(process.env.TRACKING_ID)
@@ -103,32 +116,48 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         onErrored={() => setErrorCaptcha(true)}
       />
       <div className="min-h-screen flex flex-col">
-        <div className="m-auto">
+        <div className="m-auto relative">
+          <nav className="absolute z-0 rounded-md right-0 bottom-0">
+            <a
+              href="#"
+              onClick={() => setShowMoreOptions((old) => !old)}
+              className={'z-10 bg-gray-800 border-white rounded border relative inline-flex items-right px-3 py-3 text-white'}>
+              {!showMoreOptions ? <FaAngleDoubleDown className='animate-bounce' /> : <FaAngleDoubleUp />}
+            </a>
+          </nav>
           <div className="flex flex-col bg-gray-200 max-w-sm shadow-md pt-7 pb-5 px-6 rounded-md">
             <div className="flex flex-col md:flex-row gap-5">
               <img
-                className="rounded-full border-4 border-gray-800 h-36 w-36 mx-auto"
+                className="rounded-full border-4 border-gray-800 h-24 w-24 mx-auto"
                 src={avatar_url} alt=""
               />
               <div className="flex flex-col text-center md:text-left">
-                <div className="font-medium text-xl text-gray-800" style={{ fontFamily: 'Nunito' }}>Christian Quispe H.</div>
+                <div className="font-medium text-2xl text-gray-800 pt-2 pb-1" style={{ fontFamily: 'Nunito' }}>Christian Quispe</div>
                 <div className="text-gray-500 mb-3 whitespace-nowrap">{bio}</div>
-                <div className="flex flex-row gap-4 text-gray-800 my-auto text-4xl mx-auto">
-                  {resumePdf}
-                  <a title='Linkedin' target="_blank" href='https://cv.oxicode.io' className="hover:cursor-pointer hover:text-blue-600" rel="noreferrer">
-                    <FaLinkedin />
-                  </a>
-                  {whatsapp}
-                </div>
-                <div className="flex flex-row gap-4 text-gray-800 my-auto text-4xl mt-2 mx-auto">
-                  {mail}
-                  <a title='Calendly' target="_blank" href='https://calendly.com/christian-quispeh/15min' className="hover:cursor-pointer hover:text-blue-300" rel="noreferrer">
-                    <CalendarIcon />
-                  </a>
-                  {paypal}
-                </div>
+
               </div>
             </div>
+            <Transition
+              show={showMoreOptions}
+              enter="transition-opacity duration-500"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-500"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+
+            <hr className='border-t mt-4 mb-2 border-solid border-gray-400' />
+              <div className="flex flex-col transition duration-500 ease-in-out">
+                {linkedin}
+                {resumePdf}
+                {whatsapp}
+                {calendly}
+                {mail}
+                {paypal}
+              </div>
+            </Transition>
+
           </div>
 
           <AlertRobot errorCaptcha={errorCaptcha} />
