@@ -28,7 +28,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         })
       }}
     >
-      <FaInbox className='inline-block text-3xl' /> Contact by email
+      <FaInbox className='inline-block text-3xl transform hover:scale-125' /> Contact by email
     </a>
   )
 
@@ -44,7 +44,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
       }}
       href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
       className="my-2 hover:cursor-pointer hover:text-green-500" rel="noreferrer">
-      <FaWhatsapp className='inline-block text-3xl' /> Whatsapp
+      <FaWhatsapp className='inline-block text-3xl transform hover:scale-125' /> Whatsapp
     </a>
   )
 
@@ -61,7 +61,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         })
       }}
       className="my-2 hover:cursor-pointer hover:text-red-600" rel="noreferrer">
-      <IconDonwload className='inline-block text-3xl' /> {' '} Download resume
+      <IconDonwload className='inline-block text-3xl transform hover:scale-125' /> {' '} Download resume
     </a>
   )
 
@@ -72,7 +72,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         className="mt-2 hover:cursor-pointer hover:text-blue-600">
         <input type="hidden" name="hosted_button_id" value={process.env.TOKEN_PAYPAL} />
         <button type="submit">
-          <RiPaypalFill title='Buy a Coffee' className='inline-block text-3xl' /> {' '} Paypal
+          <RiPaypalFill title='Buy a Coffee' className='inline-block text-3xl transform hover:scale-125' /> {' '} Paypal
         </button>
         <img alt="" border="0" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
       </form>
@@ -82,13 +82,13 @@ const Home = ({ bio, avatar_url, blog, email }) => {
   const linkedin = (<a title='Linkedin' target="_blank" href='https://cv.oxicode.io'
     className="my-2 hover:cursor-pointer hover:text-blue-600"
     rel="noreferrer">
-    <FaLinkedin className='inline-block text-3xl' /> {' '} Linkedin
+    <FaLinkedin className='inline-block text-3xl transform hover:scale-125' /> {' '} Linkedin
   </a>)
 
   const calendly = (<a title='Calendly' target="_blank"
     href='https://calendly.com/christian-quispeh/15min'
-    className="my-2 hover:cursor-pointer hover:text-blue-300" rel="noreferrer">
-    <CalendarIcon className='inline-block text-3xl' /> {' '} Calendly
+    className="my-2 hover:cursor-pointer hover:text-yellow-800" rel="noreferrer">
+    <CalendarIcon className='inline-block text-3xl transform hover:scale-125' /> {' '} Calendly
   </a>)
 
   useEffect(() => {
@@ -139,16 +139,16 @@ const Home = ({ bio, avatar_url, blog, email }) => {
             </div>
             <Transition
               show={showMoreOptions}
-              enter="transition-opacity duration-500"
-              enterFrom="opacity-0"
-              enterTo="opacity-100"
-              leave="transition-opacity duration-500"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
+              enter="transition duration-500 ease-out"
+              enterFrom="transform scale-95 opacity-0"
+              enterTo="transform scale-100 opacity-100"
+              leave="transition duration-300 ease-out"
+              leaveFrom="transform scale-100 opacity-100"
+              leaveTo="transform scale-95 opacity-0"
             >
 
-              <hr className='border-t sm:mt-0 md:mt-3 mb-2 border-solid border-gray-400' />
-              <div className="flex flex-col transition duration-500 ease-in-out">
+              <hr className='h-px sm:mt-0 md:mt-3 mb-2 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
+              <div className="flex flex-col">
                 {linkedin}
                 {resumePdf}
                 {whatsapp}
@@ -174,8 +174,8 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 const AlertRobot = ({ errorCaptcha }) => (errorCaptcha
   ? (<div className="alert flex flex-row items-center bg-red-200 p-5 rounded border-b-2 border-red-300 mt-2">
     <div className="alert-icon flex items-center bg-red-100 border-2 border-red-500 justify-center flex-shrink-0 rounded-full">
-      <span className="text-red-500">
-        <FaRobot size={'1.5em'} />
+      <span className="text-red-600">
+        <FaRobot size={'1.5em'} className='animate-pulse' />
       </span>
     </div>
     <div className="alert-content ml-4">
