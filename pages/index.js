@@ -79,7 +79,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
     </>
   )
 
-  const linkedin = (<a title='Linkedin' target="_blank" href='https://cv.oxicode.io'
+  const linkedin = (<a title='Linkedin' target="_blank" href='https://www.linkedin.com/in/oxicode'
     className="my-2 hover:cursor-pointer hover:text-blue-600"
     rel="noreferrer">
     <FaLinkedin className='inline-block text-3xl transform hover:scale-125' /> {' '} Linkedin
@@ -106,6 +106,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         <meta property="og:title" content="Resume Christian Quispe" />
         <meta property="og:description" content={bio} />
         <meta property="og:image" content={avatar_url} />
+        <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:url" content={blog} />
       </Head>
       <ReCAPTCHA
@@ -135,7 +136,9 @@ const Home = ({ bio, avatar_url, blog, email }) => {
                 <div className="font-medium text-2xl text-gray-800 pt-2 pb-1" style={{ fontFamily: 'Nunito' }}>
                   <h1>Christian Quispe</h1>
                 </div>
-                <div className="text-gray-500 mb-3 whitespace-nowrap">{bio}</div>
+                <div className="text-gray-500 mb-3 whitespace-nowrap">
+                  <h2>{bio}</h2>
+                </div>
 
               </div>
             </div>
