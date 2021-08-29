@@ -137,8 +137,9 @@ const Home = ({ bio, avatar_url, blog, email }) => {
                 <div className="font-medium text-2xl text-gray-800 pt-2 pb-1" style={{ fontFamily: 'Nunito' }}>
                   <h1>Christian Quispe</h1>
                 </div>
-                <div className="text-gray-500 mb-3 whitespace-nowrap">
-                  <h2>{bio}</h2>
+                <div className='text-gray-500'>
+                  <h2>{bio} </h2>
+                  <h2>Artificial Intelligence</h2>
                 </div>
 
               </div>
@@ -147,13 +148,13 @@ const Home = ({ bio, avatar_url, blog, email }) => {
               show={showMoreOptions}
               enter="transition duration-500 ease-out"
               enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-100 opacity-100"
+              enterTo="transform scale-200 opacity-100"
               leave="transition duration-300 ease-out"
-              leaveFrom="transform scale-100 opacity-100"
+              leaveFrom="transform scale-200 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
 
-              <hr className='h-px sm:mt-0 md:mt-3 mb-2 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
+              <hr className='h-px mt-3 sm:mt-0 md:mt-5 mb-2 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
               <div className="flex flex-col">
                 {linkedin}
                 {resumePdf}

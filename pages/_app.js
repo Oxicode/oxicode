@@ -6,7 +6,6 @@ import Head from 'next/head'
 function MyApp ({ Component, pageProps }) {
   return <>
     <Head>
-      <title>Profile Oxicode.io</title>
       <meta name="keywords" content={process.env.KEYWORDS}/>
       <meta name="author" content="Oxicode" />
       <meta name="theme-color" content="#1b2735" />
