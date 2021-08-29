@@ -101,6 +101,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
   return (
     <>
       <Head>
+        <title>Profile Christian Quispe | Oxicode</title>
         <link rel="icon" href="/favicon.ico" />
         <meta property="description" content={bio} />
         <meta property="og:title" content="Resume Christian Quispe" />
