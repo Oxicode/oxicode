@@ -50,8 +50,8 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 
   const resumePdf = (
     <a
-      title='Resume' target="_blank"
-      href={showHuman ? 'https://pdf.oxicode.io/' : '#'}
+      title='Resume'
+      href={showHuman ? '/pdf' : '#'}
       onClick={() => {
         if (!showHuman) { recaptchaRef.current.execute() }
         ReactGA.event({

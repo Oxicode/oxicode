@@ -3,6 +3,15 @@
  */
 const nextConfig = {
   poweredByHeader: false,
+  async redirects () {
+    return [
+      {
+        source: '/pdf',
+        destination: process.env.REDIRECT_CV,
+        permanent: false
+      }
+    ]
+  },
   env: {
     TOKEN_GITHUB: process.env.TOKEN_GITHUB,
     TOKEN_PAYPAL: process.env.TOKEN_PAYPAL,
