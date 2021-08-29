@@ -1,3 +1,5 @@
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
+
 /**
  * @type {import('next').NextConfig}
  */
@@ -20,10 +22,15 @@ const nextConfig = {
     KEYWORDS: process.env.KEYWORDS,
     TRACKING_ID: process.env.TRACKING_ID
   },
-  webpack: (config, { webpack }) => {
+  webpack: (config, { webpack, dev }) => {
     config.plugins.push(
       new webpack.BannerPlugin("You're a little curious!, By Oxicode")
     )
+    if (dev) {
+      config.plugins.push(
+        new DuplicatePackageCheckerPlugin()
+      )
+    }
 
     return config
   }

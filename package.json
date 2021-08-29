@@ -19,6 +19,7 @@
   "devDependencies": {
     "autoprefixer": "^10.2.6",
     "babel-eslint": "^10.1.0",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "eslint": "^7.32.0",
     "eslint-config-eslint": "^7.0.0",
     "eslint-config-next": "11.1.0",
