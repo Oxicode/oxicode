@@ -5,7 +5,7 @@ class MyDocument extends Document {
     const randomColorClass = (Math.random() > 0.5) ? 'bg-gradient-to-l' : 'bg-gradient-to-bl'
 
     return (
-      <Html className= {`${randomColorClass} from-gray-700 via-gray-900 to-black`}>
+      <Html className= {`${randomColorClass} from-gray-700 via-gray-900 to-black`} lang='en'>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
