@@ -102,6 +102,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
     <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="description" content={bio} />
         <meta property="og:title" content="Resume Christian Quispe" />
         <meta property="og:description" content={bio} />
         <meta property="og:image" content={avatar_url} />
@@ -128,10 +129,12 @@ const Home = ({ bio, avatar_url, blog, email }) => {
             <div className="flex flex-col md:flex-row gap-5">
               <img
                 className="rounded-full border-4 border-gray-800 h-24 w-24 mx-auto"
-                src={avatar_url} alt=""
+                src={avatar_url} alt="Me"
               />
               <div className="flex flex-col text-center md:text-left mb-3">
-                <div className="font-medium text-2xl text-gray-800 pt-2 pb-1" style={{ fontFamily: 'Nunito' }}>Christian Quispe</div>
+                <div className="font-medium text-2xl text-gray-800 pt-2 pb-1" style={{ fontFamily: 'Nunito' }}>
+                  <h1>Christian Quispe</h1>
+                </div>
                 <div className="text-gray-500 mb-3 whitespace-nowrap">{bio}</div>
 
               </div>
