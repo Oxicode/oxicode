@@ -7,7 +7,15 @@ import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa'
 
-import { AlertRobotComponent, calendly, linkedin, MailComponent, paypal, ResumePdfComponent, WhatsappComponent } from './components/navbar'
+import {
+  AlertRobotComponent,
+  calendly,
+  linkedin,
+  MailComponent,
+  paypal,
+  ResumePdfComponent,
+  WhatsappComponent
+} from '@/components/navbar'
 
 const Home = ({ bio, avatar_url, blog, email }) => {
   const recaptchaRef = createRef()
