@@ -48,9 +48,9 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         onChange={() => setShowHuman(true)}
         onErrored={() => setErrorCaptcha(true)}
       />
-      <div className="min-h-screen flex flex-col">
-        <div className="m-auto relative">
-          <nav className="absolute z-0 rounded-md right-0 bottom-0">
+      <div className="flex flex-col min-h-screen">
+        <div className="relative m-auto">
+          <nav className="absolute bottom-0 right-0 z-0 rounded-md">
             <a
               href="#"
               onClick={() => setShowMoreOptions((old) => !old)}
@@ -58,17 +58,17 @@ const Home = ({ bio, avatar_url, blog, email }) => {
               {!showMoreOptions ? <FaAngleDoubleDown className='animate-bounce' /> : <FaAngleDoubleUp />}
             </a>
           </nav>
-          <div className="flex flex-col bg-gray-200 max-w-sm shadow-md pt-7 pb-5 px-6 rounded-md">
-            <div className="flex flex-col md:flex-row gap-5">
+          <div className="flex flex-col max-w-sm px-6 pb-5 bg-gray-200 rounded-md shadow-md pt-7">
+            <div className="flex flex-col gap-5 md:flex-row">
               <img
-                className="rounded-full border-4 border-gray-800 h-24 w-24 mx-auto"
+                className="w-24 h-24 mx-auto border-4 border-gray-800 rounded-full"
                 src={avatar_url} alt="Me"
               />
-              <div className="flex flex-col text-center md:text-left mb-3">
-                <div className="font-medium text-2xl text-gray-800 pt-2 pb-1" style={{ fontFamily: 'Nunito' }}>
+              <div className="flex flex-col mb-3 text-center md:text-left">
+                <div className="pt-2 pb-1 text-2xl font-medium text-gray-800 font-nunito-sans">
                   <h1>Christian Quispe</h1>
                 </div>
-                <div className='text-gray-500'>
+                <div className='text-gray-500 font-chilanka'>
                   <h2>{bio} </h2>
                   <h2>Artificial Intelligence</h2>
                 </div>
@@ -85,7 +85,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
               leaveTo="transform scale-95 opacity-0"
             >
 
-              <hr className='h-px mt-3 sm:mt-0 md:mt-5 mb-2 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
+              <hr className='h-px mt-3 mb-2 border-0 sm:mt-0 md:mt-5 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
               <div className="flex flex-col">
                 {linkedin}
                 {calendly}
