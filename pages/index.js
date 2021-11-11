@@ -10,7 +10,7 @@ import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa'
 import {
   AlertRobotComponent,
   calendly,
-  linkedin,
+  LinkedinComponent,
   MailComponent,
   paypal,
   ResumePdfComponent,
@@ -49,19 +49,11 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         onErrored={() => setErrorCaptcha(true)}
       />
       <div className="flex flex-col min-h-screen">
-        <div className="relative m-auto">
-          <nav className="absolute bottom-0 right-0 z-0 rounded-md">
-            <a
-              href="#"
-              onClick={() => setShowMoreOptions((old) => !old)}
-              className={'z-10 bg-gray-800 border-white rounded border relative inline-flex items-right px-3 py-3 text-white'}>
-              {!showMoreOptions ? <FaAngleDoubleDown className='animate-bounce' /> : <FaAngleDoubleUp />}
-            </a>
-          </nav>
-          <div className="flex flex-col max-w-sm px-6 pb-5 bg-gray-200 rounded-md shadow-md pt-7">
+        <div className="m-auto">
+          <div className="flex flex-col max-w-sm px-6 pb-5 bg-white shadow-lg rounded-2xl pt-7">
             <div className="flex flex-col gap-5 md:flex-row">
               <img
-                className="w-24 h-24 mx-auto border-4 border-gray-800 rounded-full"
+                className="w-24 h-24 mx-auto border-gray-800 rounded-lg"
                 src={avatar_url} alt="Me"
               />
               <div className="flex flex-col mb-3 text-center md:text-left">
@@ -75,6 +67,21 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 
               </div>
             </div>
+
+            <div className="flex items-center justify-between gap-3 mt-3">
+
+              <LinkedinComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+              <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+
+              <a
+                href="#"
+                title='Click me!'
+                onClick={() => setShowMoreOptions((old) => !old)}
+                className={'bg-gray-800 border-white rounded border relative px-3 py-3 text-white'}>
+                {!showMoreOptions ? <FaAngleDoubleDown className='animate-bounce' /> : <FaAngleDoubleUp />}
+              </a>
+            </div>
+
             <Transition
               show={showMoreOptions}
               enter="transition duration-500 ease-out"
@@ -87,10 +94,8 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 
               <hr className='h-px mt-3 mb-2 border-0 sm:mt-0 md:mt-5 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
               <div className="flex flex-col">
-                {linkedin}
                 {calendly}
                 <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-                <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                 <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                 {paypal}
               </div>
