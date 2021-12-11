@@ -12,7 +12,10 @@
   ],
   "rules": {
     "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/exports": "error",
+    "indent": ["error",
+      2
+    ]
   },
   "plugins": ["simple-import-sort"]
 }

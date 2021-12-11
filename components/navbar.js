@@ -32,7 +32,7 @@ const WhatsappComponent = ({ ReactGA, showHuman, recaptchaRef }) => (
       })
     }}
     href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
-    className="w-1/2 px-3 py-2 text-white bg-[#66b135] border rounded-lg" rel="noreferrer">
+    className="whitespace-nowrap w-1/2 px-3 py-2 text-white bg-[#66b135] border rounded-lg" rel="noreferrer">
     <FaWhatsapp className='inline-block mb-1' /> Whatsapp
   </a>
 )
@@ -81,7 +81,7 @@ const LinkedinComponent = ({ showHuman, recaptchaRef, ReactGA }) => (
         label: 'Linkedin'
       })
     }}
-    className="w-1/2 px-3 py-2 text-white bg-[#0e76a8] border rounded-lg"
+    className="whitespace-nowrap w-1/2 px-3 py-2 text-white bg-[#0e76a8] border rounded-lg"
     rel="noreferrer">
     <FaLinkedin className='inline-block mb-1' /> {' '} Linkedin
   </a>

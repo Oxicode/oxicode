@@ -22,6 +22,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
   const [showMoreOptions, setShowMoreOptions] = useState(false)
   const [showHuman, setShowHuman] = useState(false)
   const [errorCaptcha, setErrorCaptcha] = useState(false)
+
   useEffect(() => {
     ReactGA.initialize(process.env.TRACKING_ID)
     recaptchaRef.current.execute()
