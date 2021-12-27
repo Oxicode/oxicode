@@ -1,3 +1,29 @@
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.zigzag:before {
+  height: 24px;
+  content:'';
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  left:0;
+  background: linear-gradient(-135deg, #fff 12px, transparent 0%),
+  linear-gradient(135deg, #fff 12px, transparent 0%);
+  background-size: 1rem;
+}
+.zigzag:after {
+  top: 0;
+  height: 24px;
+  content:'';
+  width: 100%;
+  position: absolute;
+  left:0;
+  background: linear-gradient(45deg, #fff 12px, transparent 0),
+    linear-gradient(-45deg, #fff 12px, transparent 0);
+  background-size: 1rem;
+}
 
 #stars0 {
   width: 1px;

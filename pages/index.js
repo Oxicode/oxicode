@@ -5,7 +5,7 @@ import Head from 'next/head'
 import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa'
+import { FaAngleDoubleDown, FaAngleDoubleUp, FaGithub } from 'react-icons/fa'
 
 import {
   AlertRobotComponent,
@@ -49,59 +49,67 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         onChange={() => setShowHuman(true)}
         onErrored={() => setErrorCaptcha(true)}
       />
+
+      <div className="absolute right-0 text-center origin-top rotate-45 translate-x-1/2 bg-white mt-9 mr-9 w-72" >
+        <div className="py-1 lg:text-xl">
+          <a href="https://github.com/oxicode" target='_blank' rel="noreferrer"><FaGithub className={'align-sub inline-block'} /> Github </a>
+        </div>
+      </div>
       <div className="flex flex-col min-h-screen">
-        <div className="m-auto">
-          <div className="flex flex-col max-w-sm px-6 pb-5 bg-white shadow-lg rounded-2xl pt-7">
-            <div className="flex flex-col gap-5 md:flex-row">
-              <img
-                className="w-24 h-24 mx-auto border-gray-800 rounded-lg"
-                src={avatar_url} alt="Me"
-              />
-              <div className="flex flex-col mb-3 text-center md:text-left">
-                <div className="pt-2 pb-1 text-2xl font-medium text-gray-800 font-nunito-sans">
-                  <h1>Christian Quispe</h1>
+        <div className="relative m-auto">
+          <div className="px-6 pb-5 my-6 bg-white pt-7 zigzag">
+            <div className="flex flex-col max-w-sm ">
+              <div className="flex flex-col gap-5 bg-white md:flex-row">
+                <img
+                  className="w-24 h-24 mx-auto border-gray-800 rounded-lg"
+                  src={avatar_url} alt="Me"
+                />
+                <div className="flex flex-col mb-3 text-center md:text-left">
+                  <div className="pt-2 pb-1 text-2xl font-medium text-gray-800 font-nunito-sans">
+                    <h1>Christian Quispe</h1>
+                  </div>
+                  <div className='text-gray-500 font-chilanka'>
+                    <h2>{bio} </h2>
+                    <h2>Artificial Intelligence</h2>
+                  </div>
+
                 </div>
-                <div className='text-gray-500 font-chilanka'>
-                  <h2>{bio} </h2>
-                  <h2>Artificial Intelligence</h2>
+              </div>
+
+              <div className="flex items-center justify-between gap-3 mt-3">
+
+                <LinkedinComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+                <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+
+                <a
+                  href="#"
+                  title='Click me!'
+                  onClick={() => setShowMoreOptions((old) => !old)}
+                  className={'bg-gray-800 border-white rounded border relative px-3 py-3 text-white'}>
+                  {!showMoreOptions ? <FaAngleDoubleDown className='animate-bounce' /> : <FaAngleDoubleUp />}
+                </a>
+              </div>
+
+              <Transition
+                show={showMoreOptions}
+                enter="transition duration-500 ease-out"
+                enterFrom="transform scale-95 opacity-0"
+                enterTo="transform scale-200 opacity-100"
+                leave="transition duration-300 ease-out"
+                leaveFrom="transform scale-200 opacity-100"
+                leaveTo="transform scale-95 opacity-0"
+              >
+
+                <hr className='h-px mt-3 mb-2 border-0 sm:mt-0 md:mt-5 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
+                <div className="flex flex-col">
+                  {calendly}
+                  <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+                  <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+                  {paypal}
                 </div>
+              </Transition>
 
-              </div>
             </div>
-
-            <div className="flex items-center justify-between gap-3 mt-3">
-
-              <LinkedinComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-              <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-
-              <a
-                href="#"
-                title='Click me!'
-                onClick={() => setShowMoreOptions((old) => !old)}
-                className={'bg-gray-800 border-white rounded border relative px-3 py-3 text-white'}>
-                {!showMoreOptions ? <FaAngleDoubleDown className='animate-bounce' /> : <FaAngleDoubleUp />}
-              </a>
-            </div>
-
-            <Transition
-              show={showMoreOptions}
-              enter="transition duration-500 ease-out"
-              enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-200 opacity-100"
-              leave="transition duration-300 ease-out"
-              leaveFrom="transform scale-200 opacity-100"
-              leaveTo="transform scale-95 opacity-0"
-            >
-
-              <hr className='h-px mt-3 mb-2 border-0 sm:mt-0 md:mt-5 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
-              <div className="flex flex-col">
-                {calendly}
-                <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-                <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-                {paypal}
-              </div>
-            </Transition>
-
           </div>
 
           <AlertRobotComponent errorCaptcha={errorCaptcha} />
