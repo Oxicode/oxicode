@@ -85,7 +85,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
                   className="w-24 h-24 mx-auto border-gray-800 rounded-lg"
                   src={avatar_url} alt="Me"
                 />
-                <div className="flex flex-col mb-3 text-center md:text-left">
+                <div className="flex flex-col mb-3 text-center select-all md:text-left">
                   <div className="pt-2 pb-1 text-2xl font-medium text-stone-800 font-nunito-sans">
                     <h1>Christian Quispe</h1>
                   </div>
@@ -105,7 +105,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
                 leaveFrom="transform scale-200 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <div className={'max-w-[18rem] my-3'}>
+                <div className={'max-w-[18rem] my-3 select-none'}>
                   <p className='text-sm text-justify md:pt-1'>
                   I am a full-stack developer focused on WS integrations with Artificial Intelligence from the cloud. I have solid experience in technologies like Javascript/NodeJS (8 years), PHP (11 years), Python (4 years), also other technologies awesome.
                   </p>
