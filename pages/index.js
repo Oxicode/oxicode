@@ -152,9 +152,6 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 
         </div>
 
-        <div id="stars1"></div>
-        <div id="stars2"></div>
-        <div id="stars3"></div>
       </div>
     </>
   )

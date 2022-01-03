@@ -3,6 +3,7 @@ import Document, { Head, Html, Main, NextScript } from 'next/document'
 class MyDocument extends Document {
   render () {
     const randomColorClass = (Math.random() > 0.5) ? 'bg-gradient-to-l' : 'bg-gradient-to-bl'
+    const randomBGClass = (Math.random() > 0.5) ? 'bg-[url("/svg/circuit-board.svg")]' : ''
 
     return (
       <Html className={`${randomColorClass} from-gray-700 via-gray-900 to-black`} lang='en'>
@@ -16,9 +17,16 @@ class MyDocument extends Document {
             rel="stylesheet"
           />
         </Head>
-        <body className='overflow-hidden'>
+        <body className={`overflow-hidden ${randomBGClass}`}>
           <Main />
           <NextScript />
+          {randomBGClass === ''
+            ? <>
+              <div id="stars1"></div>
+              <div id="stars2"></div>
+              <div id="stars3"></div>
+            </>
+            : <></> }
         </body>
       </Html>
     )
