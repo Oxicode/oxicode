@@ -6,6 +6,7 @@ import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FaAngleDoubleDown, FaAngleDoubleUp, FaGithub } from 'react-icons/fa'
+import { ScriptLoader } from 'react-use-scripts'
 
 import {
   AlertRobotComponent,
@@ -42,6 +43,23 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:url" content={blog} />
       </Head>
+
+      <ScriptLoader
+        onError={(err) => console.log({ err })}
+        onReady={() => {
+          const DEFAULT_XML = window?.location?.origin + '/pets/neko.xml'
+
+          // eslint-disable-next-line no-undef, new-cap
+          const sheep1 = new eSheep({ allowPets: 'none', allowPopup: 'no' })
+          // eslint-disable-next-line no-undef, new-cap
+          const sheep2 = new eSheep({ allowPets: 'none', allowPopup: 'no' })
+
+          sheep1.Start(DEFAULT_XML)
+          sheep2.Start(DEFAULT_XML)
+        }}
+        src='https://adrianotiger.github.io/web-esheep/dist/esheep.min.js'
+      />
+
       <ReCAPTCHA
         ref={recaptchaRef}
         size="invisible"
