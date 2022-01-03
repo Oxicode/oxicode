@@ -50,13 +50,16 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         onErrored={() => setErrorCaptcha(true)}
       />
 
-      <div className="absolute right-0 text-center origin-top rotate-45 translate-x-1/2 bg-white mt-9 mr-9 w-72" >
+      <div className="absolute right-0 z-10 text-center origin-top rotate-45 translate-x-1/2 bg-white mt-9 mr-9 w-72" >
         <div className="py-1 lg:text-xl">
           <a href="https://github.com/oxicode" target='_blank' rel="noreferrer"><FaGithub className={'align-sub inline-block'} /> Github </a>
         </div>
       </div>
       <div className="flex flex-col min-h-screen">
         <div className="relative m-auto">
+          <div className="absolute top-0 left-0 w-full h-6 bg-zz-bottom bg-[length:1rem]"></div>
+          <div className="absolute bottom-0 left-0 w-full h-6 bg-zz-top bg-[length:1rem]"></div>
+
           <div className="px-6 pb-5 my-6 bg-white pt-7 zigzag">
             <div className="flex flex-col max-w-sm ">
               <div className="flex flex-col gap-5 bg-white md:flex-row">
@@ -101,7 +104,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
               >
 
                 <hr className='h-px mt-3 mb-2 border-0 sm:mt-0 md:mt-5 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
-                <div className="flex flex-col">
+                <div className="flex flex-col space-y-5">
                   {calendly}
                   <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                   <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
@@ -115,9 +118,10 @@ const Home = ({ bio, avatar_url, blog, email }) => {
           <AlertRobotComponent errorCaptcha={errorCaptcha} />
 
         </div>
-        <div id="stars0"></div>
+
         <div id="stars1"></div>
         <div id="stars2"></div>
+        <div id="stars3"></div>
       </div>
     </>
   )

@@ -6,7 +6,7 @@ import { VscCalendar as CalendarIcon, VscFilePdf as IconDonwload } from 'react-i
 const MailComponent = ({ showHuman, email, recaptchaRef, ReactGA }) => (
   <a
     title={showHuman ? email : 'MailTo, Click for contact info'}
-    className="my-2 hover:cursor-pointer hover:text-red-500"
+    className=" hover:cursor-pointer hover:text-red-500"
     href={showHuman ? `mailto:${email}` : '#'}
     onClick={() => {
       if (!showHuman) { recaptchaRef.current.execute() }
@@ -49,7 +49,7 @@ const ResumePdfComponent = ({ showHuman, recaptchaRef, ReactGA }) => (
         label: 'resumePdf'
       })
     }}
-    className="my-2 hover:cursor-pointer hover:text-red-600" rel="noreferrer">
+    className="hover:cursor-pointer hover:text-red-600" rel="noreferrer">
     <IconDonwload className='inline-block text-3xl transform hover:scale-125' /> {' '} Download resume
   </a>
 )
@@ -58,7 +58,7 @@ const paypal = (
   <>
     <form action="https://www.paypal.com/donate" method="post"
       target="_top"
-      className="mt-2 hover:cursor-pointer hover:text-blue-600">
+      className="hover:cursor-pointer hover:text-blue-600">
       <input type="hidden" name="hosted_button_id" value={process.env.TOKEN_PAYPAL} />
       <button type="submit">
         <RiPaypalFill title='Buy a Coffee' className='inline-block text-3xl transform hover:scale-125' /> {' '} Paypal
@@ -89,7 +89,7 @@ const LinkedinComponent = ({ showHuman, recaptchaRef, ReactGA }) => (
 
 const calendly = (<a title='Calendly' target="_blank"
   href='https://calendly.com/christian-quispeh/15min'
-  className="my-2 hover:cursor-pointer hover:text-yellow-800" rel="noreferrer">
+  className="mt-2 hover:cursor-pointer hover:text-yellow-800" rel="noreferrer">
   <CalendarIcon className='inline-block text-3xl transform hover:scale-125' /> {' '} Calendly
 </a>)
 
