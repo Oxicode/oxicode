@@ -68,18 +68,33 @@ const Home = ({ bio, avatar_url, blog, email }) => {
                   src={avatar_url} alt="Me"
                 />
                 <div className="flex flex-col mb-3 text-center md:text-left">
-                  <div className="pt-2 pb-1 text-2xl font-medium text-gray-800 font-nunito-sans">
+                  <div className="pt-2 pb-1 text-2xl font-medium text-stone-800 font-nunito-sans">
                     <h1>Christian Quispe</h1>
                   </div>
-                  <div className='text-gray-500 font-chilanka'>
+                  <div className='text-neutral-800 font-chilanka'>
                     <h2>{bio} </h2>
-                    <h2>Artificial Intelligence</h2>
+                    <h2>Artificial Intelligence 🤖</h2>
                   </div>
 
                 </div>
               </div>
+              <Transition
+                show={!showMoreOptions}
+                enter="transition duration-500 ease-out"
+                enterFrom="transform scale-95 opacity-0"
+                enterTo="transform scale-200 opacity-100"
+                leave="transition duration-300 ease-out"
+                leaveFrom="transform scale-200 opacity-100"
+                leaveTo="transform scale-95 opacity-0"
+              >
+                <div className={'max-w-[18rem] my-3'}>
+                  <p className='text-sm text-justify md:pt-1'>
+                  I am a full-stack developer focused on WS integrations with Artificial Intelligence from the cloud. I have solid experience in technologies like Javascript/NodeJS (8 years), PHP (11 years), Python (4 years), also other technologies awesome.
+                  </p>
+                </div>
 
-              <div className="flex items-center justify-between gap-3 mt-3">
+              </Transition>
+              <div className="flex items-center justify-between gap-3 mt-2">
 
                 <LinkedinComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                 <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
@@ -95,15 +110,15 @@ const Home = ({ bio, avatar_url, blog, email }) => {
 
               <Transition
                 show={showMoreOptions}
-                enter="transition duration-500 ease-out"
+                enter="transition duration-700 ease-out"
                 enterFrom="transform scale-95 opacity-0"
                 enterTo="transform scale-200 opacity-100"
-                leave="transition duration-300 ease-out"
+                leave="transition duration-500 ease-out"
                 leaveFrom="transform scale-200 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
 
-                <hr className='h-px mt-3 mb-2 border-0 sm:mt-0 md:mt-5 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
+                <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
                 <div className="flex flex-col space-y-5">
                   {calendly}
                   <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
