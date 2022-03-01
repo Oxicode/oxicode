@@ -5,6 +5,7 @@ const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack
  */
 const nextConfig = {
   poweredByHeader: false,
+  swcMinify: true,
   async redirects () {
     return [
       {
