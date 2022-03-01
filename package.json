@@ -7,7 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@headlessui/react": "1.4.0",
+    "@headlessui/react": "1.5.0",
     "@octokit/core": "3.5.1",
     "next": "latest",
     "react": "17.0.2",
