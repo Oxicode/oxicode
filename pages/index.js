@@ -5,7 +5,7 @@ import Head from 'next/head'
 import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { FaAngleDoubleDown, FaAngleDoubleUp, FaGithub } from 'react-icons/fa'
+import { FaAngleDoubleDown, FaGithub, FaLinkedin } from 'react-icons/fa'
 import { ScriptLoader } from 'react-use-scripts'
 
 import {
@@ -68,88 +68,25 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         onErrored={() => setErrorCaptcha(true)}
       />
 
-      <div className="absolute right-0 z-10 text-center origin-top rotate-45 translate-x-1/2 bg-white mt-9 mr-9 w-72" >
-        <div className="py-1 lg:text-xl">
-          <a href="https://github.com/oxicode" target='_blank' rel="noreferrer"><FaGithub className={'align-sub inline-block'} /> Github </a>
-        </div>
-      </div>
-      <div className="flex flex-col min-h-screen">
-        <div className="relative m-auto">
-          <div className="absolute top-0 left-0 w-full h-6 bg-zz-bottom bg-[length:1rem]"></div>
-          <div className="absolute bottom-0 left-0 w-full h-6 bg-zz-top bg-[length:1rem]"></div>
-
-          <div className="px-6 pb-5 my-6 bg-white pt-7 zigzag">
-            <div className="flex flex-col max-w-sm ">
-              <div className="flex flex-col gap-5 bg-white md:flex-row">
-                <img
-                  className="w-24 h-24 mx-auto border-gray-800 rounded-lg"
-                  src={avatar_url} alt="Me"
-                />
-                <div className="flex flex-col mb-3 text-center select-all md:text-left">
-                  <div className="pt-2 pb-1 text-2xl font-medium text-stone-800 font-nunito-sans">
-                    <h1>Christian Quispe</h1>
-                  </div>
-                  <div className='text-neutral-800 font-chilanka'>
-                    <h2>{bio} </h2>
-                    <h2>Artificial Intelligence 🤖</h2>
-                  </div>
-
-                </div>
-              </div>
-              <Transition
-                show={!showMoreOptions}
-                enter="transition duration-500 ease-out"
-                enterFrom="transform scale-95 opacity-0"
-                enterTo="transform scale-200 opacity-100"
-                leave="transition duration-300 ease-out"
-                leaveFrom="transform scale-200 opacity-100"
-                leaveTo="transform scale-95 opacity-0"
-              >
-                <div className={'max-w-[18rem] my-3 select-none'}>
-                  <p className='text-sm text-justify md:pt-1'>
-                  I am a full-stack developer focused on WS integrations with Artificial Intelligence from the cloud. I have solid experience in technologies like Javascript/NodeJS (8 years), PHP (11 years), Python (4 years), also other technologies awesome.
-                  </p>
-                </div>
-
-              </Transition>
-              <div className="flex items-center justify-between gap-3 mt-2">
-
-                <LinkedinComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-                <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-
-                <a
-                  href="#"
-                  title='Click me!'
-                  onClick={() => setShowMoreOptions((old) => !old)}
-                  className={'bg-gray-800 border-white rounded border relative px-3 py-3 text-white'}>
-                  {!showMoreOptions ? <FaAngleDoubleDown className='animate-bounce' /> : <FaAngleDoubleUp />}
-                </a>
-              </div>
-
-              <Transition
-                show={showMoreOptions}
-                enter="transition duration-700 ease-out"
-                enterFrom="transform scale-95 opacity-0"
-                enterTo="transform scale-200 opacity-100"
-                leave="transition duration-500 ease-out"
-                leaveFrom="transform scale-200 opacity-100"
-                leaveTo="transform scale-95 opacity-0"
-              >
-
-                <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
-                <div className="flex flex-col space-y-5">
-                  {calendly}
-                  <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-                  <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-                  {paypal}
-                </div>
-              </Transition>
-
-            </div>
+      <div className="min-h-screen ">
+        <div className="relative max-w-5xl m-auto">
+          <nav id="nav" className='relative flex h-16 p-0 pr-8 mt-16 overflow-hidden font-bold leading-loose text-white bg-gray-900 '>
+            <ul className="flex list-none shrink grow">
+              <li className="block pt-4 text-black align-middle bg-gray-200 active"><a className='block px-8' href="">About Me</a></li>
+              <li className='block pt-4'><a className='block px-8' href="">CV</a></li>
+            </ul>
+            <ul className="hidden space-x-4 list-none md:flex shrink-0">
+              <li className='block pt-4'><a href="https://www.linkedin.com/in/oxicode/" className="block"> <FaLinkedin size='1.5rem' /></a></li>
+              <li className='block pt-4'><a href="https://github.com/oxicode" className="block"><FaGithub size='1.5rem' /> </a></li>
+            </ul>
+          </nav>
+          <div className="bg-gray-200">
+            <img
+              className="w-24 h-24 mx-auto border-gray-800 rounded-lg"
+              src={avatar_url} alt="Me"
+            />
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod consequuntur hic reprehenderit natus veniam et fugit corrupti, ab laborum reiciendis inventore laudantium dolorem odit eveniet minus sunt? Possimus, soluta fugiat!
           </div>
-
-          <AlertRobotComponent errorCaptcha={errorCaptcha} />
-
         </div>
 
       </div>

@@ -8,7 +8,7 @@ class MyDocument extends Document {
     const randomBGClass = (Math.random() > 0.5) ? 'bg-[url("/svg/circuit-board.svg")]' : ''
 
     return (
-      <Html className={classNames(randomColorClass, 'from-gray-700 via-gray-900 to-black')} lang='en'>
+      <Html className={classNames(randomColorClass, 'from-gray-800 to-gray-900')} lang='en'>
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
@@ -28,7 +28,7 @@ class MyDocument extends Document {
               <div id="stars2"></div>
               <div id="stars3"></div>
             </>
-            : <></> }
+            : <></>}
         </body>
       </Html>
     )
