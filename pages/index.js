@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element, camelcase */
+/* eslint-disable @next/next/no-img-element, camelcase, react-hooks/exhaustive-deps */
 import { Transition } from '@headlessui/react'
 import { Octokit } from '@octokit/core'
 import Head from 'next/head'
@@ -6,7 +6,6 @@ import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FaAngleDoubleDown, FaAngleDoubleUp, FaGithub } from 'react-icons/fa'
-import { ScriptLoader } from 'react-use-scripts'
 
 import {
   AlertRobotComponent,
@@ -17,6 +16,7 @@ import {
   ResumePdfComponent,
   WhatsappComponent
 } from '@/components/navbar'
+import useScript from '@/components/useScript'
 
 const Home = ({ bio, avatar_url, blog, email }) => {
   const recaptchaRef = createRef()
@@ -29,7 +29,20 @@ const Home = ({ bio, avatar_url, blog, email }) => {
     recaptchaRef.current.execute()
     ReactGA.set({ page: window.location.pathname })
     ReactGA.pageview(window.location.pathname)
-  })
+  }, [])
+
+  const statusScript = useScript(
+    'https://adrianotiger.github.io/web-esheep/dist/esheep.min.js'
+  )
+
+  useEffect(() => {
+    const DEFAULT_XML = window?.location?.origin + '/pets/neko.xml'
+
+    if (statusScript === 'ready') {
+      // eslint-disable-next-line no-undef, new-cap
+      new eSheep({ allowPets: 'none', allowPopup: 'no' }).Start(DEFAULT_XML)
+    }
+  }, [statusScript])
 
   return (
     <>
@@ -43,22 +56,6 @@ const Home = ({ bio, avatar_url, blog, email }) => {
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:url" content={blog} />
       </Head>
-
-      <ScriptLoader
-        onError={(err) => console.log({ err })}
-        onReady={() => {
-          const DEFAULT_XML = window?.location?.origin + '/pets/neko.xml'
-
-          // eslint-disable-next-line no-undef, new-cap
-          const sheep1 = new eSheep({ allowPets: 'none', allowPopup: 'no' })
-          // eslint-disable-next-line no-undef, new-cap
-          const sheep2 = new eSheep({ allowPets: 'none', allowPopup: 'no' })
-
-          sheep1.Start(DEFAULT_XML)
-          sheep2.Start(DEFAULT_XML)
-        }}
-        src='https://adrianotiger.github.io/web-esheep/dist/esheep.min.js'
-      />
 
       <ReCAPTCHA
         ref={recaptchaRef}
