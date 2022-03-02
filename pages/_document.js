@@ -28,7 +28,7 @@ class MyDocument extends Document {
               <div id="stars2"></div>
               <div id="stars3"></div>
             </>
-            : <></> }
+            : <></>}
         </body>
       </Html>
     )

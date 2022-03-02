@@ -107,7 +107,7 @@ const Home = ({ bio, avatar_url, blog, email }) => {
               >
                 <div className={'max-w-[18rem] my-3 select-none'}>
                   <p className='text-sm text-justify md:pt-1'>
-                  I am a full-stack developer focused on WS integrations with Artificial Intelligence from the cloud. I have solid experience in technologies like Javascript/NodeJS (8 years), PHP (11 years), Python (4 years), also other technologies awesome.
+                    I am a full-stack developer focused on WS integrations with Artificial Intelligence from the cloud. I have solid experience in technologies like Javascript/NodeJS (8 years), PHP (11 years), Python (4 years), also other technologies awesome.
                   </p>
                 </div>
 
