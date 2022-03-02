@@ -6,7 +6,9 @@ import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FaAngleDoubleDown, FaAngleDoubleUp, FaGithub } from 'react-icons/fa'
+import { createApi } from 'unsplash-js'
 
+import { randomElement } from '@/components/helper'
 import {
   AlertRobotComponent,
   calendly,
@@ -18,7 +20,7 @@ import {
 } from '@/components/navbar'
 import useScript from '@/components/useScript'
 
-const Home = ({ bio, avatar_url, blog, email }) => {
+const Home = ({ bio, avatar_url, blog, email, randomE }) => {
   const recaptchaRef = createRef()
   const [showMoreOptions, setShowMoreOptions] = useState(false)
   const [showHuman, setShowHuman] = useState(false)
@@ -29,6 +31,9 @@ const Home = ({ bio, avatar_url, blog, email }) => {
     recaptchaRef.current.execute()
     ReactGA.set({ page: window.location.pathname })
     ReactGA.pageview(window.location.pathname)
+
+    window.document.querySelector('#__next').style.backgroundImage = `url(${randomE})`
+    window.document.querySelector('#__next').style.backgroundSize = 'cover'
   }, [])
 
   const statusScript = useScript(
@@ -160,9 +165,20 @@ export async function getStaticProps () {
   const response = await octokit.request('GET /user')
   const { bio, avatar_url, blog, email } = response.data
 
+  const unsplash = createApi({ accessKey: process.env.KEY_UNSPLASH })
+  const result = await unsplash.search.getPhotos({
+    query: randomElement(['dev', 'nodejs', 'python', 'php']),
+    orderBy: 'relevant',
+    orientation: 'landscape'
+  })
+
+  const randomE = (result.type === 'success')
+    ? randomElement(result.response.results).urls.full
+    : ''
+
   return {
     props: {
-      bio, avatar_url, blog, email
+      bio, avatar_url, blog, email, randomE
     }
   }
 }
