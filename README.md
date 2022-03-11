@@ -18,19 +18,14 @@
     <img src="https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
     <img src="https://img.shields.io/badge/Azure-0078D4?style=for-the-badge&logo=Microsoft+Azure&logoColor=white" alt="Azure" />
     <img src="https://img.shields.io/badge/-Github-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
-    <img src="https://img.shields.io/badge/-Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
     <img src="https://img.shields.io/badge/Tailwind-CC6699?style=for-the-badge&logo=tailwindcss&logoColor=white" />  
-    <img src="https://img.shields.io/badge/-VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code">
-    <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/django/django.png" >
-    <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/linux/linux.png" />
-    <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/nextjs/nextjs.png" />
-    <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/babel/babel.png" />
-    <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/blockchain/blockchain.png" />
+    <img src="https://img.shields.io/badge/-VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VS Code"> 
+    <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/linux/linux.png" /> 
+    <img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/babel/babel.png" /> 
 <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
   <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" />
-  
-<img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/webpack/webpack.png" />
-<img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/postgresql/postgresql.png" />
+  <img src="https://skillicons.dev/icons?i=git,postgres,docker,tailwind,django,nextjs" />
+<img align="left" width="26px" src="https://raw.githubusercontent.com/github/explore/master/topics/webpack/webpack.png" /> 
 </p>
     <br><br>
 <a href="https://app.daily.dev/oxicode"><img src="https://api.daily.dev/devcards/5a962eaf38fc4f4b9b6299f9824223c0.png?r=85f" width="400" alt="Christian Quispe's Dev Card"/></a>
