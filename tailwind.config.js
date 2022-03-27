@@ -1,5 +1,6 @@
-module.exports = {
-  mode: 'jit',
+/** @type {import('tailwindcss/types').Config} */
+
+const config = {
   content: [
     './pages/*.js',
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -19,3 +20,5 @@ module.exports = {
   },
   plugins: []
 }
+
+module.exports = config
