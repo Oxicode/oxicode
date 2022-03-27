@@ -20,17 +20,21 @@
    <a href="https://getbootstrap.com/"><img src="https://skillicons.dev/icons?i=bootstrap" /></a> <br> <a href="https://remix.run/"><img src="https://skillicons.dev/icons?i=remix" /></a>  <a href="https://pugjs.org/">
    <img src="https://skillicons.dev/icons?i=pug" /></a> <a href="https://jquery.com/"><img src="https://skillicons.dev/icons?i=jquery" /></a>
    <br><br>
+   Cloud<br>
+   <img src="https://skillicons.dev/icons?i=aws,azure" />
+   <br><br>
    Document and design<br>
    <a href="https://www.figma.com/"><img src="https://skillicons.dev/icons?i=figma" /></a>  <a href="https://daringfireball.net/projects/markdown/"><img src="https://skillicons.dev/icons?i=markdown" /></a>  <a href="https://www.w3.org/Graphics/SVG/"><img src="https://skillicons.dev/icons?i=svg" /></a><br><br>
    Technologies and Databases<br>
-  <img src="https://skillicons.dev/icons?i=docker,azure,aws,mongodb" /> <br>  <a href="https://www.postgresql.org/"> <img src="https://skillicons.dev/icons?i=postgresql,mysql,firebase,redis&perline=4" /></a> <br><a href="https://www.prisma.io/"><img src="https://skillicons.dev/icons?i=prisma" /></a><br><br>
-   Dev tools and more<br>
+  <img src="https://skillicons.dev/icons?i=docker,mongodb,sqlite,firebase" /> <br>  <a href="https://www.postgresql.org/"> <img src="https://skillicons.dev/icons?i=postgresql,mysql,oracle,redis&perline=4" /></a> <br><a href="https://www.prisma.io/"><img src="https://skillicons.dev/icons?i=prisma" /></a><br><br>
+   Dev tools and more <br>
       <a href="https://git-scm.com/"><img src="https://skillicons.dev/icons?i=git" /></a> <a href="https://code.visualstudio.com/"><img src="https://skillicons.dev/icons?i=vscode" /></a> <img src="https://skillicons.dev/icons?i=cloudflare" /> <img src="https://skillicons.dev/icons?i=linux" />
 </p>
+ <br> <br>
     <a href="https://app.daily.dev/oxicode" ><img src="https://api.daily.dev/devcards/5a962eaf38fc4f4b9b6299f9824223c0.png?r=85f" width="400" alt="Christian Quispe's Dev Card"/></a>
     </p>
-    <br>
-</p>
+
+<br> <br>
 
 
 ## My Github Stats
