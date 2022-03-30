@@ -12,7 +12,6 @@ import { randomElement } from '@/components/helper'
 import {
   AlertRobotComponent,
   calendly,
-  LinkedinComponent,
   MailComponent,
   paypal,
   ResumePdfComponent,
@@ -116,7 +115,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
               </Transition>
               <div className="flex items-center justify-between gap-3 mt-2">
 
-                <LinkedinComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+                <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                 <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
 
                 <a
@@ -141,7 +140,6 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
                 <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
                 <div className="flex flex-col space-y-5">
                   {calendly}
-                  <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                   <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                   {paypal}
                 </div>
