@@ -8,7 +8,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import { FaAngleDoubleDown, FaAngleDoubleUp, FaGithub } from 'react-icons/fa'
 import { createApi } from 'unsplash-js'
 
-import { randomElement } from '@/components/helper'
+import { randomElement, removeBanned } from '@/components/helper'
 import {
   AlertRobotComponent,
   calendly,
@@ -171,7 +171,7 @@ export async function getStaticProps () {
   })
 
   const randomE = (result.type === 'success')
-    ? randomElement(result.response.results).urls.full
+    ? randomElement(removeBanned(result.response.results))
     : ''
 
   return {
