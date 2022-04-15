@@ -53,7 +53,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
       <Head>
         <title>Profile Christian Quispe | Oxicode</title>
         <link rel="icon" href="/favicon.ico" />
-        <meta property="description" content={bio} />
+        <meta name="description" content={bio} />
         <meta property="og:title" content="Resume Christian Quispe" />
         <meta property="og:description" content={bio} />
         <meta property="og:image" content={avatar_url} />
@@ -170,8 +170,10 @@ export async function getStaticProps () {
     orientation: 'landscape'
   })
 
+  const filterResults = randomElement(removeBanned(result.response.results))
+
   const randomE = (result.type === 'success')
-    ? randomElement(removeBanned(result.response.results))
+    ? filterResults.urls.full
     : ''
 
   return {
