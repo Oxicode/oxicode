@@ -59,6 +59,8 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
         <meta property="og:image" content={avatar_url} />
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:url" content={blog} />
+        <meta property="og:type" content="website" />
+        <meta property="og:profile:username" content="oxicode" />
       </Head>
 
       <ReCAPTCHA
@@ -84,7 +86,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
               <div className="flex flex-col gap-5 bg-white md:flex-row">
                 <img
                   className="w-24 h-24 mx-auto border-gray-800 rounded-lg"
-                  src={avatar_url} alt="Me"
+                  src={avatar_url} alt="Christian Quispe"
                 />
                 <div className="flex flex-col mb-3 text-center select-all md:text-left">
                   <div className="pt-2 pb-1 text-2xl font-medium text-stone-800 font-nunito-sans">
