@@ -30,9 +30,7 @@
    Dev tools and more <br>
       <a href="https://git-scm.com/"><img src="https://skillicons.dev/icons?i=git" /></a> <a href="https://code.visualstudio.com/"><img src="https://skillicons.dev/icons?i=vscode" /></a> <img src="https://skillicons.dev/icons?i=cloudflare" /> <img src="https://skillicons.dev/icons?i=linux" />
 </p>
- <br> <br>
-    <a href="https://app.daily.dev/oxicode" ><img src="https://api.daily.dev/devcards/5a962eaf38fc4f4b9b6299f9824223c0.png?r=85f" width="400" alt="Christian Quispe's Dev Card"/></a>
-    </p>
+ <br> </p>
 
 <br> <br>
 
