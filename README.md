@@ -8,8 +8,10 @@
 ### View skills
 
    Programming languages<br>
-   <a href="https://github.com/syuilo/aiscript"><img src="https://skillicons.dev/icons?i=aiscript" /></a> <a href="https://www.gnu.org/software/bash/"><img src="https://skillicons.dev/icons?i=bash" /></a> <a href="https://javascript.com"><img src="https://skillicons.dev/icons?i=js" /></a>  <a href="https://nodejs.org/"><img src="https://skillicons.dev/icons?i=nodejs" /></a> <br> <a href="https://www.python.org/"><img src="https://skillicons.dev/icons?i=python" /></a>  <a href="https://www.typescriptlang.org/"><img src="https://skillicons.dev/icons?i=typescript" /></a>
-   <img src="https://skillicons.dev/icons?i=deno,php" /><br><br>
+    <a href="https://nodejs.org/"><img src="https://skillicons.dev/icons?i=nodejs" /></a> <a href="https://www.gnu.org/software/bash/"><img src="https://skillicons.dev/icons?i=bash" /></a> <a href="https://javascript.com"><img src="https://skillicons.dev/icons?i=js" /></a> 
+    <img src="https://skillicons.dev/icons?i=php" /><br> <a href="https://www.python.org/"><img src="https://skillicons.dev/icons?i=python" /></a>  <a href="https://www.typescriptlang.org/"><img src="https://skillicons.dev/icons?i=typescript" /></a>
+   <img src="https://skillicons.dev/icons?i=deno" />
+   <a href="https://github.com/syuilo/aiscript"><img src="https://skillicons.dev/icons?i=aiscript" /></a><br><br>
    Backend frameworks<br>
    <img src="https://skillicons.dev/icons?i=laravel" /> <img src="https://skillicons.dev/icons?i=nuxtjs" /> <img src="https://skillicons.dev/icons?i=expressjs,django" />
    <br><br>
