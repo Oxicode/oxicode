@@ -32,7 +32,7 @@ const WhatsappComponent = ({ ReactGA, showHuman, recaptchaRef }) => (
       })
     }}
     href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
-    className="whitespace-nowrap w-1/2 px-3 py-2 text-gray-900 border-gray-400 bg-[#6BCB77] border rounded-lg" rel="noreferrer">
+    className="whitespace-nowrap w-1/2 px-3 py-2 text-white  bg-[#128C7E] border border-[#128C7E] rounded-lg" rel="noreferrer">
     <FaWhatsapp className='inline-block mb-1' /> Whatsapp
   </a>
 )
@@ -49,7 +49,7 @@ const ResumePdfComponent = ({ showHuman, recaptchaRef, ReactGA }) => (
         label: 'resumePdf'
       })
     }}
-    className="whitespace-nowrap w-1/2 px-3 py-2 text-white bg-[#FD5D5D] border rounded-lg" rel="noreferrer">
+    className="w-1/2 px-3 py-2 text-white bg-red-600 border rounded-lg whitespace-nowrap" rel="noreferrer">
     <IconDonwload className='inline-block mb-1' /> {' '} Resume
   </a>
 )
