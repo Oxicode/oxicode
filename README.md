@@ -1,8 +1,9 @@
-## I am Christian QH: 👋 ![](https://komarev.com/ghpvc/?username=your-github-username&color=green)
+## I am Christian QH: 👋  
 
 ### Available for a remote job:
 [![Gmail Badge](https://img.shields.io/badge/christian.quispeh@gmail.com-c14438?style=flat&logo=Gmail&logoColor=white&link=mailto:christian.quispeh@gmail.com)](mailto:christian.quispeh@gmail.com)
 [![Linkedin Badge](https://img.shields.io/badge/-Christian%20QH-0072b1?style=flat&logo=Linkedin&logoColor=white&link=https://linkedin.com/in/oxicode/)](https://linkedin.com/in/oxicode/)
+<img src='https://visitor-badge.glitch.me/badge?page_id=oxicode.oxicode' />
 <br>
 
 ### View skills
