@@ -25,7 +25,7 @@
     "@babel/eslint-parser": "7.17.0",
     "autoprefixer": "10.4.4",
     "duplicate-package-checker-webpack-plugin": "3.0.0",
-    "eslint": "8.13.0",
+    "eslint": "8.16.0",
     "eslint-config-eslint": "7.0.0",
     "eslint-config-next": "12.1.6",
     "eslint-config-standard": "16.0.3",
