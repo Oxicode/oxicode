@@ -23,7 +23,7 @@
   "devDependencies": {
     "@babel/core": "7.17.10",
     "@babel/eslint-parser": "7.17.0",
-    "autoprefixer": "10.4.4",
+    "autoprefixer": "10.4.7",
     "duplicate-package-checker-webpack-plugin": "3.0.0",
     "eslint": "8.13.0",
     "eslint-config-eslint": "7.0.0",
