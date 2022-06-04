@@ -6,14 +6,16 @@ import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FaAngleDoubleDown, FaAngleDoubleUp, FaGithub } from 'react-icons/fa'
+import TypeIt from 'typeit-react'
 import { createApi } from 'unsplash-js'
 
-import { randomElement, removeBanned } from '@/components/helper'
+import { classNames, randomElement, removeBanned } from '@/components/helper'
 import {
   AlertRobotComponent,
-  calendly,
+  Calendly,
+  LinkedinComponent,
   MailComponent,
-  paypal,
+  Paypal,
   ResumePdfComponent,
   WhatsappComponent
 } from '@/components/navbar'
@@ -47,6 +49,11 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
       new eSheep({ allowPets: 'none', allowPopup: 'no' }).Start(DEFAULT_XML)
     }
   }, [statusScript])
+
+  const isOnline = () => {
+    const hours = new Date().getHours()
+    return hours > 8 && hours < 20
+  }
 
   return (
     <>
@@ -84,10 +91,17 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
           <div className="px-6 pb-5 my-6 bg-white pt-7 zigzag">
             <div className="flex flex-col max-w-sm ">
               <div className="flex flex-col gap-5 bg-white md:flex-row">
-                <img
-                  className="w-24 h-24 mx-auto border-gray-800 rounded-lg"
-                  src={avatar_url} alt="Christian Quispe"
-                />
+
+                <span className="relative inline-block">
+                  <img
+                    className="w-24 h-24 mx-auto border-gray-800 rounded-md"
+                    src={avatar_url}
+                    alt=""
+                  />
+                  <span className="absolute bottom-0 right-0 block transform translate-x-1/2 border-2 border-white rounded-full">
+                    <span className={classNames('block w-4 h-4  rounded-full', isOnline() ? 'bg-green-400' : 'bg-gray-300')} />
+                  </span>
+                </span>
                 <div className="flex flex-col mb-3 text-center select-all md:text-left">
                   <div className="pt-2 pb-1 text-2xl font-medium text-stone-800 font-nunito-sans">
                     <h1>Christian Quispe</h1>
@@ -110,7 +124,34 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
               >
                 <div className={'max-w-[18rem] my-3 select-none'}>
                   <p className='text-sm text-justify md:pt-1'>
-                    I am a full-stack developer focused on WS integrations with Artificial Intelligence from the cloud. I have solid experience in technologies like Javascript/NodeJS (8 years), PHP (11 years), Python (4 years), also other technologies awesome.
+                    I am a full-stack developer focused on WS integrations with Artificial Intelligence from the cloud. {' '}
+                    <TypeIt
+                      options={{
+                        speed: 50,
+                        waitUntilVisible: true,
+                        afterComplete: function (instance) {
+                          try {
+                            instance.destroy()
+                          } catch (e) {
+                          }
+                        }
+                      }}
+                      getBeforeInit={(instance) => {
+                        instance
+                          .type('I have solid experience in technologies like Javascript/NodeJS (7 ')
+                          .pause(750)
+                          .delete(2)
+                          .pause(500)
+                          .type('8 years), Python (4 years), PHP (10 ')
+                          .pause(750)
+                          .delete(2)
+                          .pause(500)
+                          .type('1 years), also other technologies <span class="font-bold">awesome.!</span>')
+
+                        return instance
+                      }}
+                    />
+
                   </p>
                 </div>
 
@@ -118,7 +159,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
               <div className="flex items-center justify-between gap-3 mt-2">
 
                 <ResumePdfComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-                <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+                <LinkedinComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
 
                 <a
                   href="#"
@@ -140,10 +181,12 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
               >
 
                 <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
+
                 <div className="flex flex-col space-y-5">
-                  {calendly}
+                  <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+                  <Calendly />
                   <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
-                  {paypal}
+                  <Paypal />
                 </div>
               </Transition>
 

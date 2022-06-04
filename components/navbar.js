@@ -32,8 +32,8 @@ const WhatsappComponent = ({ ReactGA, showHuman, recaptchaRef }) => (
       })
     }}
     href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
-    className="whitespace-nowrap w-1/2 px-3 py-2 text-white  bg-[#128C7E] border border-[#128C7E] rounded-lg" rel="noreferrer">
-    <FaWhatsapp className='inline-block mb-1' /> Whatsapp
+    className="hover:text-[#128C7E] " rel="noreferrer">
+    <FaWhatsapp className='inline-block text-3xl transform hover:scale-125' /> Whatsapp
   </a>
 )
 
@@ -54,7 +54,7 @@ const ResumePdfComponent = ({ showHuman, recaptchaRef, ReactGA }) => (
   </a>
 )
 
-const paypal = (
+const Paypal = () => (
   <>
     <form action="https://www.paypal.com/donate" method="post"
       target="_top"
@@ -87,9 +87,9 @@ const LinkedinComponent = ({ showHuman, recaptchaRef, ReactGA }) => (
   </a>
 )
 
-const calendly = (<a title='Calendly' target="_blank"
+const Calendly = () => (<a title='Calendly' target="_blank"
   href='https://calendly.com/christian-quispeh/15min'
-  className="mt-2 hover:cursor-pointer hover:text-yellow-800" rel="noreferrer">
+  className="hover:cursor-pointer hover:text-yellow-800" rel="noreferrer">
   <CalendarIcon className='inline-block text-3xl transform hover:scale-125' /> {' '} Calendly
 </a>)
 
@@ -111,4 +111,4 @@ const AlertRobotComponent = ({ errorCaptcha }) => (errorCaptcha
   </div>)
   : <></>)
 
-export { AlertRobotComponent, calendly, LinkedinComponent, MailComponent, paypal, ResumePdfComponent, WhatsappComponent }
+export { AlertRobotComponent, Calendly, LinkedinComponent, MailComponent, Paypal, ResumePdfComponent, WhatsappComponent }

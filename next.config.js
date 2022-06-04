@@ -1,4 +1,3 @@
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin')
 
 /**
  * @type {import('next').NextConfig}
@@ -27,11 +26,6 @@ const nextConfig = {
     config.plugins.push(
       new webpack.BannerPlugin("You're a little curious!, By Oxicode")
     )
-    if (dev) {
-      config.plugins.push(
-        new DuplicatePackageCheckerPlugin()
-      )
-    }
 
     return config
   }
