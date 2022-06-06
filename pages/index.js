@@ -32,9 +32,6 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
     recaptchaRef.current.execute()
     ReactGA.set({ page: window.location.pathname })
     ReactGA.pageview(window.location.pathname)
-
-    window.document.querySelector('#__next').style.backgroundImage = `url(${randomE})`
-    window.document.querySelector('#__next').style.backgroundSize = 'cover'
   }, [])
 
   const statusScript = useScript(
@@ -80,10 +77,14 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
 
       <div className="absolute right-0 z-10 text-center origin-top rotate-45 translate-x-1/2 bg-white mt-9 mr-9 w-72" >
         <div className="py-1 lg:text-xl">
-          <a href="https://github.com/oxicode" target='_blank' rel="noreferrer"><FaGithub className={'align-sub inline-block'} /> Github </a>
+          <a href="https://github.com/oxicode" target='_blank' rel="noreferrer">
+            <FaGithub className={'align-sub inline-block'} /> Github
+          </a>
         </div>
       </div>
-      <div className="flex flex-col min-h-screen">
+      <div
+        style={{ '--bg-url': `url(${randomE})` }}
+        className="flex flex-col min-h-screen bg-cover bg-[image:var(--bg-url)]" >
         <div className="relative m-auto">
           <div className="absolute top-0 left-0 w-full h-6 bg-zz-bottom bg-[length:1rem]"></div>
           <div className="absolute bottom-0 left-0 w-full h-6 bg-zz-top bg-[length:1rem]"></div>
