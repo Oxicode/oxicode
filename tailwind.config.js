@@ -9,8 +9,8 @@ const config = {
   theme: {
     extend: {
       backgroundImage: {
-        'zz-top': 'linear-gradient(-135deg, #fff 12px, transparent 0%), linear-gradient(135deg, #fff 12px, transparent 0%)',
-        'zz-bottom': 'linear-gradient(45deg, #fff 12px, transparent 0), linear-gradient(-45deg, #fff 12px, transparent 0)'
+        'zz-top': 'linear-gradient(-135deg, #fff 1rem, transparent 0), linear-gradient(135deg, #fff 1rem, transparent 0)',
+        'zz-bottom': 'linear-gradient(45deg, #fff 1rem, transparent 0), linear-gradient(-45deg, #fff 1rem, transparent 0)'
       },
       fontFamily: {
         chilanka: ['"Chilanka"'],

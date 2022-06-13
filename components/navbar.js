@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element, camelcase */
-import { FaInbox, FaLinkedin, FaRobot, FaWhatsapp } from 'react-icons/fa'
+import { FaGithub, FaInbox, FaLinkedin, FaRobot, FaWhatsapp } from 'react-icons/fa'
 import { RiPaypalFill } from 'react-icons/ri'
 import { VscCalendar as CalendarIcon, VscFilePdf as IconDonwload } from 'react-icons/vsc'
 
@@ -87,6 +87,12 @@ const LinkedinComponent = ({ showHuman, recaptchaRef, ReactGA }) => (
   </a>
 )
 
+const Github = () => (<a title='Calendly' target="_blank"
+  href='https://github.com/oxicode'
+  className="hover:cursor-pointer hover:text-yellow-800" rel="noreferrer">
+  <FaGithub className='inline-block text-3xl transform hover:scale-125' /> {' '} Github
+</a>)
+
 const Calendly = () => (<a title='Calendly' target="_blank"
   href='https://calendly.com/christian-quispeh/15min'
   className="hover:cursor-pointer hover:text-yellow-800" rel="noreferrer">
@@ -111,4 +117,13 @@ const AlertRobotComponent = ({ errorCaptcha }) => (errorCaptcha
   </div>)
   : <></>)
 
-export { AlertRobotComponent, Calendly, LinkedinComponent, MailComponent, Paypal, ResumePdfComponent, WhatsappComponent }
+export {
+  AlertRobotComponent,
+  Calendly,
+  Github,
+  LinkedinComponent,
+  MailComponent,
+  Paypal,
+  ResumePdfComponent,
+  WhatsappComponent
+}

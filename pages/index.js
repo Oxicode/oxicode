@@ -5,7 +5,7 @@ import Head from 'next/head'
 import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { FaAngleDoubleDown, FaAngleDoubleUp, FaGithub } from 'react-icons/fa'
+import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa'
 import TypeIt from 'typeit-react'
 import { createApi } from 'unsplash-js'
 
@@ -13,6 +13,7 @@ import { classNames, randomElement, removeBanned } from '@/components/helper'
 import {
   AlertRobotComponent,
   Calendly,
+  Github,
   LinkedinComponent,
   MailComponent,
   Paypal,
@@ -74,28 +75,31 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
         onChange={() => setShowHuman(true)}
         onErrored={() => setErrorCaptcha(true)}
       />
-
-      <div className="absolute right-0 z-10 text-center origin-top rotate-45 translate-x-1/2 bg-white mt-9 mr-9 w-72" >
-        <div className="py-1 lg:text-xl">
-          <a href="https://github.com/oxicode" target='_blank' rel="noreferrer">
+      {/*
+      <div className="absolute z-10 inline w-full rotate-45 translate-x-1/2 translate-y-full bg-white right-16">
+        <div className="py-1 mx-auto text-center lg:text-xl ">
+          <a href="https://github.com/oxicode" target='_blank' rel="noreferrer" >
             <FaGithub className={'align-sub inline-block'} /> Github
           </a>
         </div>
       </div>
+     */}
       <div
         style={{ '--bg-url': `url(${randomE})` }}
-        className="flex flex-col min-h-screen bg-cover bg-[image:var(--bg-url)]" >
-        <div className="relative m-auto">
-          <div className="absolute top-0 left-0 w-full h-6 bg-zz-bottom bg-[length:1rem]"></div>
-          <div className="absolute bottom-0 left-0 w-full h-6 bg-zz-top bg-[length:1rem]"></div>
+        className="bg-cover bg-[image:var(--bg-url)] absolute inset-0"
+      />
 
-          <div className="px-6 pb-5 my-6 bg-white pt-7 zigzag">
-            <div className="flex flex-col max-w-sm ">
+      <div className="flex flex-col h-screen">
+        <div className="relative m-auto">
+          <div className="absolute top-1 left-0 w-full h-7 bg-zz-bottom border-0 bg-[length:1rem]" />
+
+          <div className="px-6 pb-5 my-6 bg-white">
+            <div className="flex flex-col max-w-sm pt-6">
               <div className="flex flex-col gap-5 bg-white md:flex-row">
 
-                <span className="relative inline-block">
+                <span className="relative inline-block mx-auto">
                   <img
-                    className="w-24 h-24 mx-auto border-gray-800 rounded-md"
+                    className="w-24 h-24 border-gray-800 rounded-md"
                     src={avatar_url}
                     alt=""
                   />
@@ -185,6 +189,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
 
                 <div className="flex flex-col space-y-5">
                   <WhatsappComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
+                  <Github />
                   <Calendly />
                   <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                   <Paypal />
@@ -193,6 +198,8 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
 
             </div>
           </div>
+
+          <div className="absolute bottom-1 left-0 w-full h-7 bg-zz-top border-0 bg-[length:1rem]" />
 
           <AlertRobotComponent errorCaptcha={errorCaptcha} />
 
