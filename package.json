@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.18.2",
-    "@babel/eslint-parser": "7.17.0",
+    "@babel/eslint-parser": "7.18.2",
     "autoprefixer": "10.4.7",
     "eslint": "8.17.0",
     "eslint-config-eslint": "7.0.0",
