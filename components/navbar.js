@@ -99,23 +99,24 @@ const Calendly = () => (<a title='Calendly' target="_blank"
   <CalendarIcon className='inline-block text-3xl transform hover:scale-125' /> {' '} Calendly
 </a>)
 
-const AlertRobotComponent = ({ errorCaptcha }) => (errorCaptcha
-  ? (<div className="flex flex-row items-center p-5 mt-2 bg-red-200 border-b-2 border-red-300 rounded alert">
+const AlertRobotComponent = ({ errorCaptcha }) => (
+  errorCaptcha &&
+  (<div className="flex flex-row items-center max-w-sm p-5 mt-2 bg-red-200 border-b-2 border-red-300 rounded alert">
     <div className="flex items-center justify-center flex-shrink-0 bg-red-100 border-2 border-red-500 rounded-full alert-icon">
-      <span className="text-red-600">
+      <span className="p-1 text-red-600">
         <FaRobot size={'1.5em'} className='animate-pulse' />
       </span>
     </div>
     <div className="ml-4 alert-content">
-      <div className="text-lg font-semibold text-red-800 alert-title">
+      <div className="text-lg font-semibold text-gray-800 alert-title">
         ¿Robot...?
       </div>
-      <div className="text-sm text-red-600 alert-description">
-        <p>Por alguna razón no pude comprobar que <br /> eres humano. Igual puedes acceder al Linkedin</p>
+      <div className="text-sm text-gray-800 alert-description">
+        <p>Por alguna razón no pude comprobar que eres humano. Igual puedes acceder al Linkedin.</p>
       </div>
     </div>
   </div>)
-  : <></>)
+)
 
 export {
   AlertRobotComponent,

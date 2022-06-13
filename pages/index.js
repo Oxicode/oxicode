@@ -24,9 +24,11 @@ import useScript from '@/components/useScript'
 
 const Home = ({ bio, avatar_url, blog, email, randomE }) => {
   const recaptchaRef = createRef()
-  const [showMoreOptions, setShowMoreOptions] = useState(false)
+
+  const [isLoadPet, setIsLoadPet] = useState(0)
   const [showHuman, setShowHuman] = useState(false)
   const [errorCaptcha, setErrorCaptcha] = useState(false)
+  const [showMoreOptions, setShowMoreOptions] = useState(false)
 
   useEffect(() => {
     ReactGA.initialize(process.env.TRACKING_ID)
@@ -42,7 +44,8 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
   useEffect(() => {
     const DEFAULT_XML = window?.location?.origin + '/pets/neko.xml'
 
-    if (statusScript === 'ready') {
+    if (statusScript === 'ready' && isLoadPet < 2) {
+      setIsLoadPet(old => old + 1)
       // eslint-disable-next-line no-undef, new-cap
       new eSheep({ allowPets: 'none', allowPopup: 'no' }).Start(DEFAULT_XML)
     }
@@ -86,7 +89,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
      */}
       <div
         style={{ '--bg-url': `url(${randomE})` }}
-        className="bg-cover bg-[image:var(--bg-url)] absolute inset-0"
+        className="bg-cover bg-[image:var(--bg-url)] absolute inset-0 blur-sm"
       />
 
       <div className="flex flex-col h-screen">
@@ -103,7 +106,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
                     src={avatar_url}
                     alt=""
                   />
-                  <span className="absolute bottom-0 right-0 block transform translate-x-1/2 border-2 border-white rounded-full">
+                  <span className="absolute bottom-0 right-0 block transform translate-x-1/2 translate-y-1/2 border-2 border-white rounded-full md:translate-y-0">
                     <span className={classNames('block w-4 h-4  rounded-full', isOnline() ? 'bg-green-400' : 'bg-gray-300')} />
                   </span>
                 </span>
@@ -197,11 +200,10 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
               </Transition>
 
             </div>
+            <AlertRobotComponent errorCaptcha={errorCaptcha} />
           </div>
 
           <div className="absolute bottom-1 left-0 w-full h-7 bg-zz-top border-0 bg-[length:1rem]" />
-
-          <AlertRobotComponent errorCaptcha={errorCaptcha} />
 
         </div>
 
@@ -218,7 +220,7 @@ export async function getStaticProps () {
 
   const unsplash = createApi({ accessKey: process.env.KEY_UNSPLASH })
   const result = await unsplash.search.getPhotos({
-    query: randomElement(['dev', 'nodejs', 'python', 'php']),
+    query: randomElement(['dev', 'nodejs', 'python', 'php', 'code']),
     orderBy: 'relevant',
     orientation: 'landscape'
   })
