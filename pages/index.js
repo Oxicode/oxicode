@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element, camelcase, react-hooks/exhaustive-deps */
+import { NextSeo } from 'next-seo';
 import { Transition } from '@headlessui/react'
 import { Octokit } from '@octokit/core'
 import Head from 'next/head'
@@ -59,18 +60,29 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
   return (
     <>
       <Head>
-        <title>Profile Christian Quispe | Oxicode</title>
+
         <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content={bio} />
-        <meta property="og:title" content="Resume Christian Quispe" />
-        <meta property="og:description" content={bio} />
-        <meta property="og:image" content={avatar_url} />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:url" content={blog} />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:type" content="website" />
         <meta property="og:profile:username" content="oxicode" />
       </Head>
 
+      <NextSeo
+        title="Profile Christian Quispe | Oxicode"
+        description={bio}
+        canonical={'https://www.oxicode.com'}
+        openGraph={{
+          url: blog,
+          title: 'Profile Christian Quispe',
+          description: bio,
+          images: [
+            { url: '/oxicode.io.png' },
+            { url: avatar_url },
+          ],
+          site_name: 'Oxicode Portfolio',
+        }}
+
+      />
       <ReCAPTCHA
         ref={recaptchaRef}
         size="invisible"
