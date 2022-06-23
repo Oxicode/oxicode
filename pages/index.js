@@ -76,7 +76,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
           title: 'Profile Christian Quispe',
           description: bio,
           images: [
-            { url: '/oxicode.io.png' },
+            { url: '/images/oxicode.io.png' },
             { url: avatar_url },
           ],
           site_name: 'Oxicode Portfolio',
