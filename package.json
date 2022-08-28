@@ -20,7 +20,7 @@
     "react-ga": "3.3.1",
     "react-google-recaptcha": "2.1.0",
     "react-icons": "4.4.0",
-    "typeit-react": "2.3.3",
+    "typeit-react": "2.6.0",
     "unsplash-js": "7.0.15"
   },
   "devDependencies": {
