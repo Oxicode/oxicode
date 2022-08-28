@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element, camelcase, react-hooks/exhaustive-deps */
-import { NextSeo } from 'next-seo';
 import { Transition } from '@headlessui/react'
 import { Octokit } from '@octokit/core'
 import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
@@ -77,9 +77,9 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
           description: bio,
           images: [
             { url: '/images/oxicode.io.png' },
-            { url: avatar_url },
+            { url: avatar_url }
           ],
-          site_name: 'Oxicode Portfolio',
+          site_name: 'Oxicode Portfolio'
         }}
 
       />
