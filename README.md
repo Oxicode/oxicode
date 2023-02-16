@@ -1,3 +1,5 @@
+<a href="https://ibb.co/892VVdF"><img src="https://i.ibb.co/dD6yyLn/1672853953112.jpg" alt="Christian QH" border="0"></a>
+
 ## I am Christian QH: 👋  
 
 ### Available for a remote job:
