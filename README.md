@@ -31,7 +31,7 @@
    Document and design<br>
    <a href="https://www.figma.com/"><img src="https://skillicons.dev/icons?i=figma" /></a>  <a href="https://daringfireball.net/projects/markdown/"><img src="https://skillicons.dev/icons?i=markdown" /></a>  <a href="https://www.w3.org/Graphics/SVG/"><img src="https://skillicons.dev/icons?i=svg" /></a><br><br>
    Technologies and Databases<br>
-  <img src="https://skillicons.dev/icons?i=docker,mongodb,sqlite,firebase" /> <br> <img src="https://skillicons.dev/icons?i=postgresql,mysql,oracle,redis&perline=4" />  <br><a href="https://www.prisma.io/"><img src="https://skillicons.dev/icons?i=prisma" /></a><br><br>
+  <img src="https://skillicons.dev/icons?i=docker,mongodb,sqlite,firebase" /> <br> <img src="https://skillicons.dev/icons?i=postgresql,mysql,prisma,redis&perline=4" />  <br><br>
    Dev tools and more <br>
       <a href="https://git-scm.com/"><img src="https://skillicons.dev/icons?i=git" /></a> <a href="https://code.visualstudio.com/"><img src="https://skillicons.dev/icons?i=vscode" /></a> <img src="https://skillicons.dev/icons?i=cloudflare" /> <img src="https://skillicons.dev/icons?i=linux" />
 </p>
