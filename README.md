@@ -9,6 +9,7 @@
 <img src='https://visitor-badge.glitch.me/badge?page_id=oxicode.oxicode' />
 <br>
 ### View skills
+
 Programming languages
 <br>
 <a href="https://nodejs.org/">
@@ -21,10 +22,10 @@ Programming languages
   <img src="https://skillicons.dev/icons?i=js" />
 </a> 
 <img src="https://skillicons.dev/icons?i=php" />
-<br> 
+<br>
 <a href="https://www.python.org/">
   <img src="https://skillicons.dev/icons?i=python" />
-</a>  
+</a>
 <a href="https://www.typescriptlang.org/">
   <img src="https://skillicons.dev/icons?i=typescript" />
 </a>
@@ -51,10 +52,10 @@ Frontend frameworks
 <a href="https://getbootstrap.com/">
   <img src="https://skillicons.dev/icons?i=bootstrap" />
 </a> 
-<br> 
+<br>
 <a href="https://remix.run/">
   <img src="https://skillicons.dev/icons?i=remix" />
-</a>  
+</a>
 <a href="https://pugjs.org/">
   <img src="https://skillicons.dev/icons?i=pug" />
 </a> 
@@ -65,17 +66,17 @@ Frontend frameworks
 <br>
 Cloud
 <br>
-<img src="https://skillicons.dev/icons?i=aws,azure,heroku" />
+<img src="https://skillicons.dev/icons?i=aws,azure,heroku,firebase" />
 <br>
 <br>
 Document and design
 <br>
 <a href="https://www.figma.com/">
   <img src="https://skillicons.dev/icons?i=figma" />
-</a>  
+</a>
 <a href="https://daringfireball.net/projects/markdown/">
   <img src="https://skillicons.dev/icons?i=markdown" />
-</a>  
+</a>
 <a href="https://www.w3.org/Graphics/SVG/">
   <img src="https://skillicons.dev/icons?i=svg" />
 </a>
@@ -83,9 +84,7 @@ Document and design
 <br>
 Technologies and Databases
 <br>
-<img src="https://skillicons.dev/icons?i=docker,mongodb,sqlite,firebase" /> 
-<br> 
-<img src="https://skillicons.dev/icons?i=postgresql,mysql,prisma,redis&perline=4" />  
+<img src="https://skillicons.dev/icons?i=docker,mongodb,sqlite,postgresql,mysql,prisma,redis&perline=4" /> 
 <br>
 <br>
 Dev tools and more 
