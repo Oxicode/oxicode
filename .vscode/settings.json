@@ -4,5 +4,11 @@
         "activityBar.background": "#183231",
         "titleBar.activeBackground": "#214644",
         "titleBar.activeForeground": "#F8FCFC"
-    }
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
 }

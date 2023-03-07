@@ -21,7 +21,7 @@
     "react-ga": "3.3.1",
     "react-google-recaptcha": "2.1.0",
     "react-icons": "4.8.0",
-    "react-rough-notation": "^1.0.3",
+    "rough-notation": "^0.5.1",
     "typeit-react": "2.6.4",
     "unsplash-js": "7.0.15"
   },

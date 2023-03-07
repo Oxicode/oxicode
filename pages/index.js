@@ -7,6 +7,7 @@ import React, { createRef, useEffect, useState } from 'react'
 import ReactGA from 'react-ga'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FaAngleDoubleDown, FaAngleDoubleUp } from 'react-icons/fa'
+import { annotate } from 'rough-notation'
 import TypeIt from 'typeit-react'
 import { createApi } from 'unsplash-js'
 
@@ -23,7 +24,7 @@ import {
 } from '@/components/navbar'
 import useScript from '@/components/useScript'
 
-const Home = ({ bio, avatar_url, blog, email, randomE }) => {
+const Home = ({ bio, avatar_url, blog, email, randomE, tracking = false }) => {
   const recaptchaRef = createRef()
 
   const [isLoadPet, setIsLoadPet] = useState(0)
@@ -32,7 +33,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
   const [showMoreOptions, setShowMoreOptions] = useState(false)
 
   useEffect(() => {
-    ReactGA.initialize(process.env.TRACKING_ID)
+    tracking && ReactGA.initialize(tracking)
     recaptchaRef.current.execute()
     ReactGA.set({ page: window.location.pathname })
     ReactGA.pageview(window.location.pathname)
@@ -53,7 +54,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
   }, [statusScript])
 
   const isOnline = () => {
-    const hours = new Date().getHours()
+    const hours = new Date().getHours() - 5
     return hours > 8 && hours < 20
   }
 
@@ -144,8 +145,10 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
               >
                 <div className={'max-w-[18rem] my-3 select-none'}>
                   <p className='text-sm text-justify md:pt-1'>
-                    I am a full-stack developer focused on WS integrations with Artificial Intelligence from the cloud. {' '}
+                    I am a Solution Architect focused on WS integrations with <span id="animate-01">Artificial Intelligence</span> from the cloud. {' '}
+                    from the cloud. {' '}
                     <TypeIt
+
                       options={{
                         speed: 50,
                         waitUntilVisible: true,
@@ -158,15 +161,34 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
                       }}
                       getBeforeInit={(instance) => {
                         instance
-                          .type('I have solid experience in technologies like Javascript/NodeJS (7 ')
+                          .exec(() => {
+                            const annotation1 = annotate(document.querySelector('#animate-01'), { type: 'highlight', color: '#FFD700' })
+                            annotation1.show()
+                          })
+                          .pause(500)
+                          .type('I have solid experience in technologies like <span id="animate-02">Javascript/NodeJS</span> (7 ')
                           .pause(750)
                           .delete(2)
                           .pause(500)
-                          .type('8 years), Python (4 years), PHP (10 ')
+                          .type('8 years), <span id="animate-03">Python</span> (4 years), <span id="animate-04">PHP</span> (10 ')
                           .pause(750)
                           .delete(2)
                           .pause(500)
                           .type('1 years), also other technologies <span class="font-bold">awesome.!</span>')
+                          .exec(() => {
+                            const annotation = annotate(document.querySelector('#animate-02'), { type: 'circle', color: '#F44336' })
+                            annotation.show()
+                          })
+                          .pause(1000)
+                          .exec(() => {
+                            const annotation = annotate(document.querySelector('#animate-03'), { type: 'circle', color: '#F44336' })
+                            annotation.show()
+                          })
+                          .pause(1000)
+                          .exec(() => {
+                            const annotation = annotate(document.querySelector('#animate-04'), { type: 'circle', color: '#F44336' })
+                            annotation.show()
+                          })
 
                         return instance
                       }}
@@ -224,7 +246,7 @@ const Home = ({ bio, avatar_url, blog, email, randomE }) => {
   )
 }
 
-export async function getStaticProps () {
+export async function getStaticProps() {
   const octokit = new Octokit({ auth: process.env.TOKEN_GITHUB })
 
   const response = await octokit.request('GET /user')
@@ -243,9 +265,11 @@ export async function getStaticProps () {
     ? filterResults.urls.full
     : ''
 
+  const tracking = process.env.TRACKING_ID ?? false
+
   return {
     props: {
-      bio, avatar_url, blog, email, randomE
+      bio, avatar_url, blog, email, randomE, tracking
     }
   }
 }
