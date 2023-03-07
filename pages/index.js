@@ -145,8 +145,8 @@ const Home = ({ bio, avatar_url, blog, email, randomE, tracking = false }) => {
               >
                 <div className={'max-w-[18rem] my-3 select-none'}>
                   <p className='text-sm text-justify md:pt-1'>
-                    I am a Solution Architect focused on WS integrations with <span id="animate-01">Artificial Intelligence</span> from the cloud. {' '}
-                    from the cloud. {' '}
+                    I am a Solution Architect focused on WS integrations with <span id="animate-01">Artificial Intelligence</span> {' '}
+                    from the cloud. <br />
                     <TypeIt
 
                       options={{
@@ -174,21 +174,23 @@ const Home = ({ bio, avatar_url, blog, email, randomE, tracking = false }) => {
                           .pause(750)
                           .delete(2)
                           .pause(500)
-                          .type('1 years), also other technologies <span class="font-bold">awesome.!</span>')
+                          .type('1 years), also other technologies <span class="font-bold">awesome.!</span> <br />')
                           .exec(() => {
                             const annotation = annotate(document.querySelector('#animate-02'), { type: 'circle', color: '#F44336' })
                             annotation.show()
                           })
-                          .pause(1000)
+                          .pause(750)
                           .exec(() => {
                             const annotation = annotate(document.querySelector('#animate-03'), { type: 'circle', color: '#F44336' })
                             annotation.show()
                           })
-                          .pause(1000)
+                          .pause(750)
                           .exec(() => {
                             const annotation = annotate(document.querySelector('#animate-04'), { type: 'circle', color: '#F44336' })
                             annotation.show()
                           })
+                          .type('And Cloud technologies like <span id="animate-05">AWS</span> (+3 years), <span id="animate-06">Azure</span> (+6 years), <span id="animate-07">GCP</span> (1 year), and others. <br />')
+                          .type('<br /><span class="font-bold">I love learning new technologies and always look for new challenges.')
 
                         return instance
                       }}
