@@ -1,12 +1,10 @@
-import { createApi } from 'unsplash-js'
-
-import { randomElement, removeBanned } from '@/utils/helpers'
-import { Octokit } from '@octokit/core'
-import HomeComponent from '@/components/HomeComponent'
 import Head from 'next/head'
 
+import HomeComponent from '@/components/HomeComponent'
+import getData from '@/lib/data'
+
 const Home = async () => {
-  const { bio, avatar_url, blog, email, randomE, tracking } = await getData()
+  const { bio, avatarUrl, blog, email, randomE, tracking } = await getData()
 
   return <>
     <Head>
@@ -21,39 +19,13 @@ const Home = async () => {
 
     <HomeComponent
       bio={bio ?? ''}
-      avatar_url={avatar_url}
+      avatarUrl={avatarUrl}
       blog={blog ?? ''}
       email={email ?? ''}
       randomE={randomE}
       tracking={`${tracking ?? false}`}
     />
   </>
-}
-
-async function getData() {
-  const octokit = new Octokit({ auth: process.env.TOKEN_GITHUB })
-
-  const response = await octokit.request('GET /user')
-  const { bio, avatar_url, blog, email } = response.data
-
-  const unsplash = createApi({ accessKey: process.env.KEY_UNSPLASH ?? '' })
-  const result = await unsplash.search.getPhotos({
-    query: randomElement(['dev', 'nodejs', 'python', 'php', 'code']),
-    orderBy: 'relevant',
-    orientation: 'landscape'
-  })
-
-  const filterResults = randomElement(removeBanned(result?.response?.results ?? []))
-
-  const randomE = (result.type === 'success')
-    ? filterResults.urls.full
-    : ''
-
-  const tracking = process.env.TRACKING_ID ?? false
-
-  return {
-    bio, avatar_url, blog, email, randomE, tracking
-  }
 }
 
 export default Home

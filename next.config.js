@@ -7,9 +7,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-      },
-    ],
+        hostname: 'avatars.githubusercontent.com'
+      }
+    ]
   },
   env: {
     TOKEN_GITHUB: process.env.TOKEN_GITHUB ?? '',
@@ -18,13 +18,6 @@ const nextConfig = {
     PHONE_NUMBER: process.env.PHONE_NUMBER ?? '',
     KEYWORDS: process.env.KEYWORDS ?? '',
     TRACKING_ID: process.env.TRACKING_ID ?? false
-  },
-  webpack: (config, { webpack, dev }) => {
-    config.plugins.push(
-      new webpack.BannerPlugin("You're a little curious!, By Oxicode")
-    )
-
-    return config
   }
 }
 
