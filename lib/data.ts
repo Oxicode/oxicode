@@ -6,11 +6,10 @@ import { createApi } from 'unsplash-js'
 import { randomElement, removeBanned } from '@/utils/helpers'
 
 async function getData() {
-  const { data, status } = await axios.get('https://api.github.com/users/oxicode')
-
-  if (status !== 200) {
+  const { data } = await axios.get('https://api.github.com/users/oxicode').catch((err) => {
+    console.log({ err })
     throw new Error('Cannot fetch user data')
-  }
+  })
 
   const { bio, avatar_url: avatarUrl, blog } = data
 

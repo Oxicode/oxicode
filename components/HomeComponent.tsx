@@ -21,7 +21,6 @@ import {
   PaypalComponent,
   ResumePdfComponent
 } from '@/components/navbar'
-import useScript from '@/hooks/useScript'
 import { classNames } from '@/utils/helpers'
 
 type iHomeComponent = {
@@ -45,7 +44,6 @@ const fontChilanka = Chilanka({
 const HomeComponent = ({ bio, avatarUrl, blog, randomE, tracking = false }: iHomeComponent) => {
   const recaptchaRef = createRef<ReCAPTCHA>()
 
-  const [isLoadPet, setIsLoadPet] = useState(0)
   const [showHuman, setShowHuman] = useState(false)
   const [errorCaptcha, setErrorCaptcha] = useState(false)
   const [showMoreOptions, setShowMoreOptions] = useState(false)
@@ -56,21 +54,6 @@ const HomeComponent = ({ bio, avatarUrl, blog, randomE, tracking = false }: iHom
     ReactGA.set({ page: window.location.pathname })
     ReactGA.pageview(window.location.pathname)
   }, [])
-
-  const statusScript = useScript(
-    'https://adrianotiger.github.io/web-esheep/dist/esheep.min.js'
-  )
-
-  useEffect(() => {
-    const DEFAULT_XML = window?.location?.origin + '/pets/neko.xml'
-
-    if (statusScript === 'ready' && isLoadPet < 2) {
-      setIsLoadPet(old => old + 1)
-      // @ts-expect-error eSheep dynamic
-      // eslint-disable-next-line new-cap, no-undef
-      new eSheep({ allowPets: 'none', allowPopup: 'no' }).Start(DEFAULT_XML)
-    }
-  }, [statusScript])
 
   const isOnline = () => {
     const hours = new Date().getHours() - 5
@@ -121,8 +104,8 @@ const HomeComponent = ({ bio, avatarUrl, blog, randomE, tracking = false }: iHom
                   </span>
                 </span>
                 <div className="flex flex-col mb-3 text-center select-all md:text-left">
-                  <div className={`pt-2 pb-1 text-2xl font-medium text-stone-800 ${fontNunito.className}`}>
-                    <h1>Christian Quispe</h1>
+                  <div className={'pt-2 pb-1 text-2xl font-medium text-stone-800'}>
+                    <h1 className={fontNunito.className}>Christian Quispe</h1>
                   </div>
                   <div className={`text-neutral-800 ${fontChilanka.className}`}>
                     <h2>{bio} </h2>
@@ -141,7 +124,7 @@ const HomeComponent = ({ bio, avatarUrl, blog, randomE, tracking = false }: iHom
                 leaveTo="transform scale-95 opacity-0"
               >
                 <div className={'max-w-[18rem] my-3 select-none'}>
-                  <p className='text-sm text-justify md:pt-1'>
+                  <p className={`text-sm text-justify md:pt-1 ${fontNunito.className}`}>
                       I am a Solution Architect focused on WS integrations with <span id="animate-01">Artificial Intelligence</span> {' '}
                       from the cloud. <br />
                     <TypeIt
@@ -220,7 +203,7 @@ const HomeComponent = ({ bio, avatarUrl, blog, randomE, tracking = false }: iHom
                 leaveTo="transform scale-95 opacity-0"
               >
 
-                <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
+                <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200 animate-jump animate-infinite' />
 
                 <div className="flex flex-col space-y-5">
                   <Github />

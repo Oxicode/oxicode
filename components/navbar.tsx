@@ -1,4 +1,4 @@
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
 import { FaGithub, FaLinkedin, FaRobot } from 'react-icons/fa'
 import { RiPaypalFill } from 'react-icons/ri'
 import { VscCalendar as CalendarIcon, VscFilePdf as IconDonwload } from 'react-icons/vsc'
@@ -43,7 +43,7 @@ const PaypalComponent = () => (
       <button type="submit">
         <RiPaypalFill title='Buy a Coffee' className='inline-block text-3xl transform hover:scale-125' /> {' '} Paypal
       </button>
-      <Image width={1} height={1} alt="" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
+      <img width={1} height={1} alt="" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
     </form>
   </>
 )
