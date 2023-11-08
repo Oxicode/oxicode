@@ -18,10 +18,8 @@ import {
   Calendly,
   Github,
   LinkedinComponent,
-  MailComponent,
   PaypalComponent,
-  ResumePdfComponent,
-  WhatsappComponent
+  ResumePdfComponent
 } from '@/components/navbar'
 import useScript from '@/hooks/useScript'
 import { classNames } from '@/utils/helpers'
@@ -30,7 +28,6 @@ type iHomeComponent = {
   bio: string
   avatarUrl: string
   blog: string
-  email: string
   randomE: string
   tracking?: string | false
 }
@@ -45,7 +42,7 @@ const fontChilanka = Chilanka({
   subsets: ['latin']
 })
 
-const HomeComponent = ({ bio, avatarUrl, blog, email, randomE, tracking = false }: iHomeComponent) => {
+const HomeComponent = ({ bio, avatarUrl, blog, randomE, tracking = false }: iHomeComponent) => {
   const recaptchaRef = createRef<ReCAPTCHA>()
 
   const [isLoadPet, setIsLoadPet] = useState(0)
@@ -226,10 +223,8 @@ const HomeComponent = ({ bio, avatarUrl, blog, email, randomE, tracking = false 
                 <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200' />
 
                 <div className="flex flex-col space-y-5">
-                  <WhatsappComponent showHuman={showHuman} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                   <Github />
                   <Calendly />
-                  <MailComponent showHuman={showHuman} email={email} recaptchaRef={recaptchaRef} ReactGA={ReactGA} />
                   <PaypalComponent />
                 </div>
               </Transition>

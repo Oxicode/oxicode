@@ -4,7 +4,7 @@ import HomeComponent from '@/components/HomeComponent'
 import getData from '@/lib/data'
 
 const Home = async () => {
-  const { bio, avatarUrl, blog, email, randomE, tracking } = await getData()
+  const { bio, avatarUrl, blog, randomE, tracking } = await getData()
 
   return <>
     <Head>
@@ -21,7 +21,6 @@ const Home = async () => {
       bio={bio ?? ''}
       avatarUrl={avatarUrl}
       blog={blog ?? ''}
-      email={email ?? ''}
       randomE={randomE}
       tracking={`${tracking ?? false}`}
     />

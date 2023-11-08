@@ -1,22 +1,18 @@
 'use server'
 
-import { Octokit } from '@octokit/core'
+import axios from 'axios'
 import { createApi } from 'unsplash-js'
 
 import { randomElement, removeBanned } from '@/utils/helpers'
 
 async function getData() {
-  console.log({ auth: process.env.TOKEN_GITHUB })
-  const octokit = new Octokit({ auth: process.env.TOKEN_GITHUB })
-  console.log('file: data.ts:11 ~ getData ~ octokit:', octokit)
+  const { data, status } = await axios.get('https://api.github.com/users/oxicode')
 
-  const response = await octokit.request('GET /user', {
-    headers: {
-      Authorization: `token ${process.env.GITHUB_TOKEN}`,
-      Accept: 'application/vnd.github.machine-man-preview+json'
-    }
-  })
-  const { bio, avatar_url: avatarUrl, blog, email } = response.data
+  if (status !== 200) {
+    throw new Error('Cannot fetch user data')
+  }
+
+  const { bio, avatar_url: avatarUrl, blog } = data
 
   const unsplash = createApi({ accessKey: process.env.KEY_UNSPLASH ?? '' })
   const result = await unsplash.search.getPhotos({
@@ -34,7 +30,7 @@ async function getData() {
   const tracking = process.env.TRACKING_ID ?? false
 
   return {
-    bio, avatarUrl, blog, email, randomE, tracking
+    bio, avatarUrl, blog, randomE, tracking
   }
 }
 

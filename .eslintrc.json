@@ -5,6 +5,7 @@
     "next/core-web-vitals"
   ],
   "rules": {
+    "no-unused-vars": "warn",
     "camelcase": "warn",
     "space-before-function-paren": "off",
     "simple-import-sort/imports": "error",

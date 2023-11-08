@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element, camelcase */
-import { FaGithub, FaInbox, FaLinkedin, FaRobot, FaWhatsapp } from 'react-icons/fa'
+import Image from 'next/image'
+import { FaGithub, FaLinkedin, FaRobot } from 'react-icons/fa'
 import { RiPaypalFill } from 'react-icons/ri'
 import { VscCalendar as CalendarIcon, VscFilePdf as IconDonwload } from 'react-icons/vsc'
 
@@ -12,46 +12,10 @@ interface AllProps {
 }
 
 interface iResumePdfComponent extends Omit<AllProps, 'errorCaptcha' | 'email'> {}
-interface iMailComponent extends Omit<AllProps, 'errorCaptcha'> {}
-interface iWhatsappComponent extends Omit<AllProps, 'errorCaptcha' | 'email'> {}
 interface iLinkedinComponent extends Omit<AllProps, 'errorCaptcha' | 'email'> {}
 interface iAlertRobotComponent {
     errorCaptcha: boolean
 }
-
-const MailComponent = ({ showHuman, email, recaptchaRef, ReactGA }: iMailComponent) => (
-  <a
-    title={showHuman ? email : 'MailTo, Click for contact info'}
-    className=" hover:cursor-pointer hover:text-red-500"
-    href={showHuman ? `mailto:${email}` : '#'}
-    onClick={() => {
-      if (!showHuman) { recaptchaRef.current.execute() }
-      ReactGA.event({
-        category: 'Navigation',
-        action: 'Click',
-        label: 'Mail'
-      })
-    }}
-  >
-    <FaInbox className='inline-block text-3xl transform hover:scale-125' /> Contact by email
-  </a>
-)
-
-const WhatsappComponent = ({ ReactGA, showHuman, recaptchaRef }: iWhatsappComponent) => (
-  <a title='Whatsapp' target="_blank"
-    onClick={() => {
-      if (!showHuman) { recaptchaRef.current.execute() }
-      ReactGA.event({
-        category: 'Navigation',
-        action: 'Click',
-        label: 'Whatsapp'
-      })
-    }}
-    href={showHuman ? `https://api.whatsapp.com/send?phone=${process.env.PHONE_NUMBER}` : '#'}
-    className="hover:text-[#128C7E] " rel="noreferrer">
-    <FaWhatsapp className='inline-block text-3xl transform hover:scale-125' /> Whatsapp
-  </a>
-)
 
 const ResumePdfComponent = ({ showHuman, recaptchaRef, ReactGA }: iResumePdfComponent) => (
   <a
@@ -79,7 +43,7 @@ const PaypalComponent = () => (
       <button type="submit">
         <RiPaypalFill title='Buy a Coffee' className='inline-block text-3xl transform hover:scale-125' /> {' '} Paypal
       </button>
-      <img alt="" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
+      <Image width={1} height={1} alt="" src="https://www.paypal.com/en_PE/i/scr/pixel.gif" style={{ width: 1, height: 1 }} />
     </form>
   </>
 )
@@ -139,8 +103,6 @@ export {
   Calendly,
   Github,
   LinkedinComponent,
-  MailComponent,
   PaypalComponent,
-  ResumePdfComponent,
-  WhatsappComponent
+  ResumePdfComponent
 }
