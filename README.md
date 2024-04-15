@@ -40,25 +40,21 @@ Programming languages
 <a href="https://javascript.com">
   <img src="https://skillicons.dev/icons?i=js" />
 </a> 
-<img src="https://skillicons.dev/icons?i=php" />
 <br>
+<img src="https://skillicons.dev/icons?i=php" />
 <a href="https://www.python.org/">
   <img src="https://skillicons.dev/icons?i=python" />
 </a>
 <a href="https://www.typescriptlang.org/">
   <img src="https://skillicons.dev/icons?i=typescript" />
 </a>
-<img src="https://skillicons.dev/icons?i=deno" />
-<a href="https://github.com/syuilo/aiscript">
-  <img src="https://skillicons.dev/icons?i=aiscript" />
-</a>
 <br>
 <br>
 Backend frameworks
 <br>
 <img src="https://skillicons.dev/icons?i=laravel" /> 
-<img src="https://skillicons.dev/icons?i=nuxtjs" /> 
-<img src="https://skillicons.dev/icons?i=expressjs,django" />
+<img src="https://skillicons.dev/icons?i=nestjs" />
+<img src="https://skillicons.dev/icons?i=expressjs" />
 <br>
 <br>
 Frontend frameworks
@@ -68,24 +64,11 @@ Frontend frameworks
 <a href="https://nextjs.org/">
   <img src="https://skillicons.dev/icons?i=nextjs" />
 </a>
-<a href="https://getbootstrap.com/">
-  <img src="https://skillicons.dev/icons?i=bootstrap" />
-</a> 
-<br>
-<a href="https://remix.run/">
-  <img src="https://skillicons.dev/icons?i=remix" />
-</a>
-<a href="https://pugjs.org/">
-  <img src="https://skillicons.dev/icons?i=pug" />
-</a> 
-<a href="https://jquery.com/">
-  <img src="https://skillicons.dev/icons?i=jquery" />
-</a>
 <br>
 <br>
 Cloud
 <br>
-<img src="https://skillicons.dev/icons?i=aws,azure,heroku,firebase" />
+<img src="https://skillicons.dev/icons?i=azure,aws,heroku,firebase" />
 <br>
 <br>
 Document and design
@@ -93,17 +76,11 @@ Document and design
 <a href="https://www.figma.com/">
   <img src="https://skillicons.dev/icons?i=figma" />
 </a>
-<a href="https://daringfireball.net/projects/markdown/">
-  <img src="https://skillicons.dev/icons?i=markdown" />
-</a>
-<a href="https://www.w3.org/Graphics/SVG/">
-  <img src="https://skillicons.dev/icons?i=svg" />
-</a>
 <br>
 <br>
 Technologies and Databases
 <br>
-<img src="https://skillicons.dev/icons?i=docker,mongodb,sqlite,postgresql,mysql,prisma,redis&perline=4" /> 
+<img src="https://skillicons.dev/icons?i=docker,mongodb,postgresql,mysql,prisma,redis&perline=3" /> 
 <br>
 <br>
 Dev tools and more 
@@ -116,7 +93,4 @@ Dev tools and more
 </a> 
 <img src="https://skillicons.dev/icons?i=cloudflare" /> 
 <img src="https://skillicons.dev/icons?i=linux" />
-<hr>                                                                                      
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=oxicode&show_icons=true&theme=swift&count_private=true">
-</p>
+<hr>           
