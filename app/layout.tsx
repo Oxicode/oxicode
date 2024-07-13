@@ -1,7 +1,7 @@
 import '@/styles/globals.css'
 import '@/styles/bg.css'
 
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { ReactNode } from 'react'
 
 import { classNames } from '@/utils/helpers'
@@ -10,7 +10,16 @@ export const metadata: Metadata = {
   title: 'Profile Christian Quispe | Oxicode',
   description: 'Christian Quispe is a software developer who specializes in building (and occasionally designing) exceptional digital experiences. Currently, he is focused on building accessible, human-centered products at @Oxicode.',
   keywords: process.env.KEYWORDS,
-  viewport: { width: 'device-width', initialScale: 1 }
+  authors: [{ name: 'Oxicode' }],
+  openGraph: {
+    type: 'profile',
+    username: 'oxicode'
+  }
+  // viewport: { width: 'device-width', initialScale: 1 }
+}
+
+export const viewport: Viewport = {
+  themeColor: '#1b2735'
 }
 
 export default function RootLayout({

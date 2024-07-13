@@ -1,18 +1,6 @@
-import { Metadata } from 'next'
-
 import getData from '@/app/actions'
 
 import HomeComponent from './_components/HomeComponent'
-
-export const metadata: Metadata = {
-  authors: [{ name: 'Oxicode' }],
-  themeColor: '#1b2735',
-  openGraph: {
-    type: 'profile',
-    username: 'oxicode'
-
-  }
-}
 
 const Home = async () => {
   const { bio, avatarUrl, randomE, tracking } = await getData()

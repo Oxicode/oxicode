@@ -145,7 +145,6 @@ const HomeComponent = ({ bio, avatarUrl, tracking }: iHomeComponent) => {
 
               </p>
             </div>
-
           </Transition>
           <div className="flex items-center justify-between gap-3 mt-2">
 
@@ -170,13 +169,14 @@ const HomeComponent = ({ bio, avatarUrl, tracking }: iHomeComponent) => {
             leaveFrom="transform scale-200 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
+            <div>
+              <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200 animate-jump animate-infinite' />
 
-            <hr className='h-px my-4 border-0 bg-gradient-to-l from-gray-200 via-gray-800 to-gray-200 animate-jump animate-infinite' />
-
-            <div className="flex flex-col space-y-5">
-              <Github />
-              {/* <Calendly /> */}
-              {/* <PaypalComponent /> */}
+              <div className="flex flex-col space-y-5">
+                <Github />
+                {/* <Calendly /> */}
+                {/* <PaypalComponent /> */}
+              </div>
             </div>
           </Transition>
 
