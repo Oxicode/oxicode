@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 
 // Hook
+type iStatus = 'idle' | 'loading' | 'ready' | 'error'
+
 function useScript (src: string) {
   // Keep track of script status ("idle", "loading", "ready", "error")
-  const [status, setStatus] = useState(src ? 'loading' : 'idle')
+  const [status, setStatus] = useState<iStatus>(src ? 'loading' : 'idle')
   useEffect(
     () => {
       // Allow falsy src value if waiting on other data needed for
@@ -35,7 +37,7 @@ function useScript (src: string) {
         script.addEventListener('error', setAttributeFromEvent)
       } else {
         // Grab existing script status from attribute and set to state.
-        setStatus(script.getAttribute('data-status')!)
+        setStatus(script.getAttribute('data-status') as iStatus)
       }
       // Script event handler to update status in state
       // Note: Even if the script already exists we still need to add

@@ -1,38 +1,32 @@
 /* eslint-disable @next/next/no-img-element */
+import ReactGA from 'react-ga'
 import { FaGithub, FaLinkedin, FaRobot } from 'react-icons/fa'
 import { RiPaypalFill } from 'react-icons/ri'
 import { VscCalendar as CalendarIcon, VscFilePdf as IconDonwload } from 'react-icons/vsc'
 
-interface AllProps {
-    showHuman: boolean,
-    email: string,
-    recaptchaRef: any,
-    ReactGA: any,
-    errorCaptcha: boolean
-}
+import { iAlertRobotComponent, iLinkedinComponent, iResumePdfComponent } from '@/types/types'
 
-interface iResumePdfComponent extends Omit<AllProps, 'errorCaptcha' | 'email'> {}
-interface iLinkedinComponent extends Omit<AllProps, 'errorCaptcha' | 'email'> {}
-interface iAlertRobotComponent {
-    errorCaptcha: boolean
-}
+const ResumePdfComponent = ({ showHuman, recaptchaRef }: iResumePdfComponent) => {
+  const handleClick = () => {
+    if (!showHuman) {
+      recaptchaRef?.current?.execute()
+    }
 
-const ResumePdfComponent = ({ showHuman, recaptchaRef, ReactGA }: iResumePdfComponent) => (
-  <a
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Click',
+      label: 'resumePdf'
+    })
+  }
+
+  return <a
     title='Resume'
     href={showHuman ? '/pdf' : '#'}
-    onClick={() => {
-      if (!showHuman) { recaptchaRef.current.execute() }
-      ReactGA.event({
-        category: 'Navigation',
-        action: 'Click',
-        label: 'resumePdf'
-      })
-    }}
+    onClick={handleClick}
     className="w-1/2 px-3 py-2 text-white bg-red-600 border rounded-lg whitespace-nowrap" rel="noreferrer">
     <IconDonwload className='inline-block mb-1' /> {' '} Resume
   </a>
-)
+}
 
 const PaypalComponent = () => (
   <>
@@ -48,24 +42,31 @@ const PaypalComponent = () => (
   </>
 )
 
-const LinkedinComponent = ({ showHuman, recaptchaRef, ReactGA }: iLinkedinComponent) => (
-  <a
-    title='Linkedin'
-    target="_blank"
-    href={showHuman ? 'https://www.linkedin.com/in/oxicode' : '#'}
-    onClick={() => {
-      if (!showHuman) { recaptchaRef.current.execute() }
-      ReactGA.event({
-        category: 'Navigation',
-        action: 'Click',
-        label: 'Linkedin'
-      })
-    }}
-    className="whitespace-nowrap w-1/2 px-3 py-2 text-white bg-[#0e76a8] border rounded-lg"
-    rel="noreferrer">
-    <FaLinkedin className='inline-block mb-1' /> {' '} Linkedin
-  </a>
-)
+const LinkedinComponent = ({ showHuman, recaptchaRef }: iLinkedinComponent) => {
+  const handleClick = () => {
+    if (!showHuman) {
+      recaptchaRef?.current?.execute()
+    }
+
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Click',
+      label: 'Linkedin'
+    })
+  }
+
+  return (
+    <a
+      title='Linkedin'
+      target="_blank"
+      href={showHuman ? 'https://www.linkedin.com/in/oxicode' : '#'}
+      onClick={handleClick}
+      className="whitespace-nowrap w-1/2 px-3 py-2 text-white bg-[#0e76a8] border rounded-lg"
+      rel="noreferrer">
+      <FaLinkedin className='inline-block mb-1' /> {' '} Linkedin
+    </a>
+  )
+}
 
 const Github = () => (<a title='Calendly' target="_blank"
   href='https://github.com/oxicode'

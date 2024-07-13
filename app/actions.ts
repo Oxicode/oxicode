@@ -6,14 +6,19 @@ import { createApi } from 'unsplash-js'
 import { randomElement, removeBanned } from '@/utils/helpers'
 
 async function getData() {
-  const { data } = await axios.get('https://api.github.com/users/oxicode').catch((err) => {
-    console.log({ err })
-    throw new Error('Cannot fetch user data')
-  })
+  const KEY_UNSPLASH = process.env.KEY_UNSPLASH ?? ''
 
-  const { bio, avatar_url: avatarUrl, blog } = data
+  const { data } = await axios
+    .get('https://api.github.com/users/oxicode')
+    .catch((err) => {
+      console.log({ err })
+      throw new Error('Cannot fetch user data')
+    })
 
-  const unsplash = createApi({ accessKey: process.env.KEY_UNSPLASH ?? '' })
+  const { bio, avatar_url: avatarUrl } = data
+
+  const unsplash = createApi({ accessKey: KEY_UNSPLASH })
+
   const result = await unsplash.search.getPhotos({
     query: randomElement(['dev', 'nodejs', 'python', 'php', 'code']),
     orderBy: 'relevant',
@@ -26,10 +31,10 @@ async function getData() {
     ? filterResults.urls.full
     : ''
 
-  const tracking = process.env.TRACKING_ID ?? false
+  const tracking = process.env.TRACKING_ID ?? ''
 
   return {
-    bio, avatarUrl, blog, randomE, tracking
+    bio, avatarUrl, randomE, tracking
   }
 }
 

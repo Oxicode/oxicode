@@ -1,5 +1,5 @@
-import './globals.css'
-import './style.css'
+import '@/styles/globals.css'
+import '@/styles/bg.css'
 
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
@@ -9,7 +9,8 @@ import { classNames } from '@/utils/helpers'
 export const metadata: Metadata = {
   title: 'Profile Christian Quispe | Oxicode',
   description: 'Christian Quispe is a software developer who specializes in building (and occasionally designing) exceptional digital experiences. Currently, he is focused on building accessible, human-centered products at @Oxicode.',
-  keywords: process.env.KEYWORDS
+  keywords: process.env.KEYWORDS,
+  viewport: { width: 'device-width', initialScale: 1 }
 }
 
 export default function RootLayout({

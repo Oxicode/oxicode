@@ -1,29 +1,41 @@
-import Head from 'next/head'
+import { Metadata } from 'next'
 
-import HomeComponent from '@/components/HomeComponent'
-import getData from '@/lib/data'
+import getData from '@/app/actions'
+
+import HomeComponent from './_components/HomeComponent'
+
+export const metadata: Metadata = {
+  authors: [{ name: 'Oxicode' }],
+  themeColor: '#1b2735',
+  openGraph: {
+    type: 'profile',
+    username: 'oxicode'
+
+  }
+}
 
 const Home = async () => {
-  const { bio, avatarUrl, blog, randomE, tracking } = await getData()
+  const { bio, avatarUrl, randomE, tracking } = await getData()
 
   return <>
-    <Head>
-      <meta name="author" content="Oxicode" />
-      <meta name="theme-color" content="#1b2735" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" href="/favicon.ico" />
-      <meta property="og:image:type" content="image/png" />
-      <meta property="og:type" content="website" />
-      <meta property="og:profile:username" content="oxicode" />
-    </Head>
-
-    <HomeComponent
-      bio={bio ?? ''}
-      avatarUrl={avatarUrl}
-      blog={blog ?? ''}
-      randomE={randomE}
-      tracking={`${tracking ?? false}`}
+    <div
+      style={{ backgroundImage: `url(${randomE})` }}
+      className="bg-cover absolute inset-0 blur-sm"
     />
+    <div className="flex flex-col h-screen">
+      <div className="relative m-auto">
+        <div className="absolute top-1 left-0 w-full h-7 bg-zz-bottom border-0 bg-[length:1rem]" />
+
+        <HomeComponent
+          bio={bio ?? ''}
+          avatarUrl={avatarUrl}
+          tracking={tracking}
+        />
+
+        <div className="absolute bottom-1 left-0 w-full h-7 bg-zz-top border-0 bg-[length:1rem]" />
+
+      </div>
+    </div>
   </>
 }
 
