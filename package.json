@@ -33,7 +33,7 @@
     "eslint-config-eslint": "7.0.0",
     "eslint-config-next": "12.3.4",
     "eslint-config-standard": "17.0.0",
-    "eslint-import-resolver-typescript": "2.7.1",
+    "eslint-import-resolver-typescript": "3.6.3",
     "eslint-plugin-jsdoc": "39.3.3",
     "eslint-plugin-n": "^15.6.1",
     "eslint-plugin-node": "11.1.0",
