@@ -26,8 +26,8 @@
     "unsplash-js": "7.0.15"
   },
   "devDependencies": {
-    "@babel/core": "7.21.0",
-    "@babel/eslint-parser": "7.19.1",
+    "@babel/core": "7.25.9",
+    "@babel/eslint-parser": "7.25.9",
     "autoprefixer": "10.4.13",
     "eslint": "8.35.0",
     "eslint-config-eslint": "7.0.0",
