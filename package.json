@@ -23,7 +23,7 @@
     "react-icons": "4.8.0",
     "rough-notation": "^0.5.1",
     "typeit-react": "2.6.4",
-    "unsplash-js": "7.0.15"
+    "unsplash-js": "7.0.20"
   },
   "devDependencies": {
     "@babel/core": "7.21.0",
